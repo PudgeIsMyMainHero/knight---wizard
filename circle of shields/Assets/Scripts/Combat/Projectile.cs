@@ -1,19 +1,23 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Projectile : MonoBehaviour
 {
+    public enum ProjectileOwner { Enemy, Player }
+    
     [Header("Settings")]
     [SerializeField] private float speed = 8f;
     [SerializeField] private int damage = 20;
     [SerializeField] private float lifetime = 5f;
+    [SerializeField] private ProjectileOwner owner = ProjectileOwner.Enemy;
     
     // State
     private Vector2 direction;
     private bool isReflected = false;
-    private int reflectedDamage;
     private Rigidbody2D rb;
     
     // Properties
+    public ProjectileOwner Owner => owner;
     public bool IsReflected => isReflected;
     
     private void Awake()
@@ -23,7 +27,6 @@ public class Projectile : MonoBehaviour
     
     private void Start()
     {
-        // Уничтожить через lifetime секунд
         Destroy(gameObject, lifetime);
     }
     
@@ -35,82 +38,114 @@ public class Projectile : MonoBehaviour
         
         rb.linearVelocity = direction * speed;
         
-        // Поворачиваем спрайт в направлении полёта
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
-    // Отражение снаряда (при парри)
-    public void Reflect(Vector2 newDirection, float damageMultiplier = 2f)
+    public void SetOwner(ProjectileOwner newOwner)
+    {
+        owner = newOwner;
+    }
+    
+    // Отражение к курсору (без урона, только для эффектов)
+    public void Reflect(Vector2 newDirection)
     {
         isReflected = true;
         direction = newDirection.normalized;
-        reflectedDamage = Mathf.RoundToInt(damage * damageMultiplier);
         
         rb.linearVelocity = direction * speed * 1.5f;
         
-        // Поворот
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
         
-        // Меняем цвет на жёлтый (отражённый)
+        // Визуал — яркий голубой (эффект-снаряд)
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.color = Color.yellow;
-        
-        // Меняем слой чтобы попадал по врагам
-        gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
-        
-        Debug.Log("REFLECTED! Damage: " + reflectedDamage);
+        if (sr != null) sr.color = new Color(0.3f, 1f, 1f, 1f);
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
     {
-        if (isReflected)
+        // Снаряд девочки → урон врагам
+        if (owner == ProjectileOwner.Player && !isReflected)
         {
-            // Отражённый снаряд попадает по врагам
             if (other.CompareTag("Enemy"))
             {
                 Health enemyHealth = other.GetComponent<Health>();
                 if (enemyHealth != null)
-                    enemyHealth.TakeDamage(reflectedDamage);
+                    enemyHealth.TakeDamage(damage, "Mage Projectile");
                 
                 Destroy(gameObject);
             }
+            return;
         }
-        else
+        
+        // Отражённый снаряд → попадает во врага БЕЗ урона
+        if (isReflected)
         {
-            // Обычный снаряд попадает по игроку
+            if (other.CompareTag("Enemy"))
+            {
+                Debug.Log("Reflected hit: " + other.name + " (effect trigger!)");
+                Destroy(gameObject);
+            }
+            return;
+        }
+        
+        // Снаряд врага
+        if (owner == ProjectileOwner.Enemy)
+        {
             if (other.CompareTag("Player"))
             {
-                // Проверяем блок/парри
                 ShieldController shield = other.GetComponentInChildren<ShieldController>();
                 
                 if (shield != null && shield.IsInBlockCone(direction))
                 {
                     if (shield.IsParryActive)
                     {
-                        // ПАРРИ — отражаем снаряд
-                        Vector2 reflectDir = -direction;
-                        Reflect(reflectDir);
-                        Debug.Log(">>> PERFECT PARRY! <<<");
+                        Vector2 cursorDir = GetCursorDirection(other.transform.position);
+                        Reflect(cursorDir);
+                        
+                        ParryEffect.SpawnFlash(transform.position);
+                        
+                        Debug.Log(">>> PARRY! Redirected to cursor! <<<");
                         return;
                     }
                     else if (shield.IsBlocking)
                     {
-                        // БЛОК — снаряд уничтожается
                         Debug.Log("Blocked!");
                         Destroy(gameObject);
                         return;
                     }
                 }
                 
-                // Попадание — урон
                 Health playerHealth = other.GetComponent<Health>();
                 if (playerHealth != null)
-                    playerHealth.TakeDamage(damage);
+                    playerHealth.TakeDamage(damage, "Enemy Projectile");
+                
+                Destroy(gameObject);
+            }
+            else if (other.CompareTag("Mage"))
+            {
+                Health mageHealth = other.GetComponent<Health>();
+                if (mageHealth != null)
+                    mageHealth.TakeDamage(damage, "Enemy Projectile");
                 
                 Destroy(gameObject);
             }
         }
+    }
+    
+    private Vector2 GetCursorDirection(Vector2 fromPosition)
+    {
+        Camera cam = Camera.main;
+        if (cam == null || Mouse.current == null)
+            return -direction; // Fallback: обратно
+        
+        Vector2 mouseScreen = Mouse.current.position.ReadValue();
+        Vector2 mouseWorld = cam.ScreenToWorldPoint(
+            new Vector3(mouseScreen.x, mouseScreen.y, cam.nearClipPlane)
+        );
+        
+        Vector2 cursorDirection = (mouseWorld - fromPosition).normalized;
+        return cursorDirection;
     }
 }

@@ -14,6 +14,7 @@ public class KnightController : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private Transform shieldTransform;
+    [SerializeField] private ShieldController shieldController;
     
     // Components
     private Rigidbody2D rb;
@@ -22,6 +23,10 @@ public class KnightController : MonoBehaviour
     // Input
     private Vector2 moveInput;
     private Vector2 mouseWorldPosition;
+    
+    // Rotation lock
+    private bool isRotationLocked = false;
+    private float lockedAngle = 0f;
     
     // Dash
     private bool isDashing = false;
@@ -34,27 +39,35 @@ public class KnightController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         
-        // Проверка наличия камеры
         if (mainCamera == null)
-        {
-            Debug.LogError("Main Camera not found! Make sure your camera has tag 'MainCamera'");
-        }
+            Debug.LogError("Main Camera not found!");
+        
+        // Автоматически найти ShieldController если не привязан
+        if (shieldController == null && shieldTransform != null)
+            shieldController = shieldTransform.GetComponent<ShieldController>();
     }
     
     private void Update()
     {
-        // Проверка наличия мыши (защита от null)
+        // Получаем позицию мыши
         if (Mouse.current != null && mainCamera != null)
         {
-            // Получаем позицию мыши через НОВЫЙ Input System
-            Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-            mouseWorldPosition = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, mainCamera.nearClipPlane));
-            
-            // Поворот к курсору
-            RotateTowardsMouse();
+            Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
+            mouseWorldPosition = mainCamera.ScreenToWorldPoint(
+                new Vector3(mouseScreenPos.x, mouseScreenPos.y, mainCamera.nearClipPlane)
+            );
         }
         
-        // Обновляем таймеры
+        // Проверяем состояние щита
+        UpdateRotationLock();
+        
+        // Поворот
+        if (isRotationLocked)
+            ApplyLockedRotation();
+        else
+            RotateTowardsMouse();
+        
+        // Таймеры
         if (dashCooldownTimer > 0)
             dashCooldownTimer -= Time.deltaTime;
             
@@ -69,15 +82,29 @@ public class KnightController : MonoBehaviour
     private void FixedUpdate()
     {
         if (isDashing)
-        {
-            // Движение во время рывка
             rb.linearVelocity = dashDirection * (dashDistance / dashDuration);
-        }
         else
+            rb.linearVelocity = moveInput * moveSpeed;
+    }
+    
+    private void UpdateRotationLock()
+    {
+        if (shieldController == null) return;
+        
+        bool shouldLock = shieldController.IsBlocking || shieldController.IsParryActive;
+        
+        if (shouldLock && !isRotationLocked)
         {
-            // Обычное движение
-            Vector2 movement = moveInput * moveSpeed;
-            rb.linearVelocity = movement;
+            // Только что поднял щит → замораживаем текущий угол
+            isRotationLocked = true;
+            lockedAngle = transform.eulerAngles.z;
+            Debug.Log("Rotation LOCKED");
+        }
+        else if (!shouldLock && isRotationLocked)
+        {
+            // Опустил щит → разблокируем
+            isRotationLocked = false;
+            Debug.Log("Rotation UNLOCKED");
         }
     }
     
@@ -85,18 +112,22 @@ public class KnightController : MonoBehaviour
     {
         Vector2 direction = (mouseWorldPosition - (Vector2)transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         
-        // Поворачиваем рыцаря
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90); // -90 чтобы "вперёд" был вверх спрайта
-        
-        // Поворачиваем щит (он всегда впереди)
         if (shieldTransform != null)
-        {
-            shieldTransform.localPosition = new Vector3(0, 0.5f, 0); // Впереди рыцаря
-        }
+            shieldTransform.localPosition = new Vector3(0, 0.5f, 0);
     }
     
-    // === INPUT SYSTEM CALLBACKS ===
+    private void ApplyLockedRotation()
+    {
+        // Держим замороженный угол
+        transform.rotation = Quaternion.Euler(0, 0, lockedAngle);
+        
+        if (shieldTransform != null)
+            shieldTransform.localPosition = new Vector3(0, 0.5f, 0);
+    }
+    
+    // === INPUT CALLBACKS ===
     
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -106,9 +137,7 @@ public class KnightController : MonoBehaviour
     public void OnDash(InputAction.CallbackContext context)
     {
         if (context.performed && !isDashing && dashCooldownTimer <= 0)
-        {
             StartDash();
-        }
     }
     
     private void StartDash()
@@ -117,7 +146,6 @@ public class KnightController : MonoBehaviour
         dashTimer = dashDuration;
         dashCooldownTimer = dashCooldown;
         
-        // Направление рывка = направление движения или к курсору
         if (moveInput.magnitude > 0.1f)
             dashDirection = moveInput.normalized;
         else

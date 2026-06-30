@@ -8,19 +8,21 @@ public class EnemyArcher : MonoBehaviour
     [SerializeField] private float projectileSpeed = 8f;
     [SerializeField] private int projectileDamage = 20;
     
-    [Header("Target")]
-    [SerializeField] private Transform target;
-    
     // State
     private float shootTimer;
+    private Transform target;
     
     private void Start()
     {
         shootTimer = shootInterval;
         
-        // Если нет цели — ищем игрока
-        if (target == null)
+        // Приоритет — девочка-маг
+        GameObject mage = GameObject.FindGameObjectWithTag("Mage");
+        if (mage != null)
+            target = mage.transform;
+        else
         {
+            // Если девочки нет — бьём игрока
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
                 target = player.transform;
@@ -33,7 +35,6 @@ public class EnemyArcher : MonoBehaviour
         
         // Таймер стрельбы
         shootTimer -= Time.deltaTime;
-        
         if (shootTimer <= 0)
         {
             Shoot();
@@ -50,21 +51,16 @@ public class EnemyArcher : MonoBehaviour
     {
         if (projectilePrefab == null || target == null) return;
         
-        // Направление к цели
         Vector2 direction = (target.position - transform.position).normalized;
         
-        // Создаём снаряд
         GameObject proj = Instantiate(
             projectilePrefab,
             transform.position,
             Quaternion.identity
         );
         
-        // Инициализируем снаряд
         Projectile projectile = proj.GetComponent<Projectile>();
         if (projectile != null)
             projectile.Initialize(direction, projectileSpeed, projectileDamage);
-        
-        Debug.Log("Enemy shoots!");
     }
 }
