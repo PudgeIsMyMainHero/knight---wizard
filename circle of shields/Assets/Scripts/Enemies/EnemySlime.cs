@@ -58,6 +58,18 @@ public class EnemySlime : MonoBehaviour
             target = mage.transform;
             
         UpdateColor();
+        
+        // Подписка на смерть
+        Health health = GetComponent<Health>();
+        if (health != null)
+            health.OnDeath.AddListener(OnDied);
+    }
+    
+    private void OnDied()
+    {
+        if (currentState == SlimeState.Dead) return;
+        Debug.Log("Slime destroyed by damage!");
+        SafeExplode();
     }
     
     private void Update()
@@ -223,6 +235,38 @@ public class EnemySlime : MonoBehaviour
             CheckDashHit(other);
     }
     
+    // === ВЫЗЫВАЕТСЯ ИЗ ShieldHitbox ===
+    
+    public void OnShieldParry(Transform knight)
+    {
+        if (currentState != SlimeState.Dashing) return;
+        if (hasDealtDamage) return;
+        
+        Debug.Log("Slime PARRIED by shield!");
+        hasDealtDamage = true;
+        
+        ParryEffect.SpawnFlash(transform.position);
+        
+        Health health = GetComponent<Health>();
+        if (health != null)
+            health.SetInvulnerable(true);
+        
+        Vector2 cursorPos = GetCursorWorldPosition();
+        StartFlying(cursorPos);
+    }
+    
+    public void OnShieldBlock()
+    {
+        if (currentState != SlimeState.Dashing) return;
+        if (hasDealtDamage) return;
+        
+        Debug.Log("Slime BLOCKED by shield!");
+        hasDealtDamage = true;
+        
+        ParryEffect.SpawnFlash(transform.position);
+        SafeExplode();
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (currentState == SlimeState.Dashing && !hasDealtDamage)
@@ -231,24 +275,11 @@ public class EnemySlime : MonoBehaviour
     
     private void CheckDashHit(Collider2D other)
     {
+        // Щит теперь ловит сам через ShieldHitbox
+        // Сюда попадаем только если мимо щита
+        
         if (other.CompareTag("Player"))
         {
-            ShieldController shield = other.GetComponentInChildren<ShieldController>();
-            
-            if (shield != null && shield.IsInBlockCone(dashDirection))
-            {
-                if (shield.IsParryActive)
-                {
-                    OnParried(other.transform);
-                    return;
-                }
-                else if (shield.IsBlocking)
-                {
-                    OnBlocked();
-                    return;
-                }
-            }
-            
             Health playerHealth = other.GetComponent<Health>();
             if (playerHealth != null)
                 playerHealth.TakeDamage(contactDamage, "Slime Dash");
@@ -265,31 +296,6 @@ public class EnemySlime : MonoBehaviour
             hasDealtDamage = true;
             SafeExplode();
         }
-    }
-    
-    // === ПАРРИ / БЛОК ===
-    
-    private void OnBlocked()
-    {
-        Debug.Log("Slime BLOCKED!");
-        hasDealtDamage = true;
-        ParryEffect.SpawnFlash(transform.position);
-        SafeExplode();
-    }
-    
-    private void OnParried(Transform knight)
-    {
-        Debug.Log("Slime PARRIED!");
-        hasDealtDamage = true;
-        
-        ParryEffect.SpawnFlash(transform.position);
-        
-        Health health = GetComponent<Health>();
-        if (health != null)
-            health.SetInvulnerable(true);
-        
-        Vector2 cursorPos = GetCursorWorldPosition();
-        StartFlying(cursorPos);
     }
     
     // === ВЗРЫВЫ ===

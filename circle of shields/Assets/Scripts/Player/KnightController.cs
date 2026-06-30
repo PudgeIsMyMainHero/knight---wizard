@@ -49,25 +49,24 @@ public class KnightController : MonoBehaviour
     
     private void Update()
     {
-        // Получаем позицию мыши
         if (Mouse.current != null && mainCamera != null)
         {
             Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
             mouseWorldPosition = mainCamera.ScreenToWorldPoint(
                 new Vector3(mouseScreenPos.x, mouseScreenPos.y, mainCamera.nearClipPlane)
             );
+            
+            // ДЕБАГ — линия от рыцаря к курсору
+            Debug.DrawLine(transform.position, mouseWorldPosition, Color.cyan);
         }
         
-        // Проверяем состояние щита
         UpdateRotationLock();
         
-        // Поворот
         if (isRotationLocked)
             ApplyLockedRotation();
         else
             RotateTowardsMouse();
         
-        // Таймеры
         if (dashCooldownTimer > 0)
             dashCooldownTimer -= Time.deltaTime;
             
@@ -77,6 +76,24 @@ public class KnightController : MonoBehaviour
             if (dashTimer <= 0)
                 isDashing = false;
         }
+    }
+    
+    private Vector2 GetMouseWorldOnPlane(Vector2 mouseScreenPos)
+    {
+        // Луч из камеры через мышь
+        Ray ray = mainCamera.ScreenPointToRay(mouseScreenPos);
+        
+        // Плоскость игры — XY на Z=0
+        // Нормаль (0, 0, -1) потому что камера смотрит в +Z
+        Plane gamePlane = new Plane(Vector3.back, Vector3.zero);
+        
+        if (gamePlane.Raycast(ray, out float distance))
+        {
+            Vector3 worldPoint = ray.GetPoint(distance);
+            return new Vector2(worldPoint.x, worldPoint.y);
+        }
+        
+        return transform.position;
     }
     
     private void FixedUpdate()

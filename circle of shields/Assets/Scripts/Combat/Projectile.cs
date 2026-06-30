@@ -4,12 +4,19 @@ using UnityEngine.InputSystem;
 public class Projectile : MonoBehaviour
 {
     public enum ProjectileOwner { Enemy, Player }
+    public enum ParryEffectType
+    {
+        None,
+        DeathMark,    // Лучник
+        Frost,        // Ледяной стрелок
+    }
     
     [Header("Settings")]
     [SerializeField] private float speed = 8f;
     [SerializeField] private int damage = 20;
     [SerializeField] private float lifetime = 5f;
     [SerializeField] private ProjectileOwner owner = ProjectileOwner.Enemy;
+    [SerializeField] private ParryEffectType parryEffect = ParryEffectType.None;
     
     // State
     private Vector2 direction;
@@ -19,6 +26,7 @@ public class Projectile : MonoBehaviour
     // Properties
     public ProjectileOwner Owner => owner;
     public bool IsReflected => isReflected;
+    public ParryEffectType ParryEffect => parryEffect;
     
     private void Awake()
     {
@@ -42,12 +50,16 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
     
+    public void SetParryEffect(ParryEffectType effect)
+    {
+        parryEffect = effect;
+    }
+    
     public void SetOwner(ProjectileOwner newOwner)
     {
         owner = newOwner;
     }
     
-    // Отражение к курсору (без урона, только для эффектов)
     public void Reflect(Vector2 newDirection)
     {
         isReflected = true;
@@ -58,14 +70,13 @@ public class Projectile : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
         
-        // Визуал — яркий голубой (эффект-снаряд)
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (sr != null) sr.color = new Color(0.3f, 1f, 1f, 1f);
     }
     
-        private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // Снаряд девочки → урон врагам
+        // Снаряд девочки → врагам
         if (owner == ProjectileOwner.Player && !isReflected)
         {
             if (other.CompareTag("Enemy"))
@@ -79,44 +90,24 @@ public class Projectile : MonoBehaviour
             return;
         }
         
-        // Отражённый снаряд → попадает во врага БЕЗ урона
+        // Отражённый снаряд → врагам БЕЗ урона
         if (isReflected)
         {
             if (other.CompareTag("Enemy"))
             {
-                Debug.Log("Reflected hit: " + other.name + " (effect trigger!)");
+                // Применяем эффект парри в зависимости от типа
+                ApplyParryEffect(other.gameObject, transform.position);
                 Destroy(gameObject);
             }
             return;
         }
         
-        // Снаряд врага
+        // Вражеский снаряд → попадает в щит? Нет — ShieldHitbox ловит раньше
+        // Если долетел сюда — значит мимо щита
         if (owner == ProjectileOwner.Enemy)
         {
             if (other.CompareTag("Player"))
             {
-                ShieldController shield = other.GetComponentInChildren<ShieldController>();
-                
-                if (shield != null && shield.IsInBlockCone(direction))
-                {
-                    if (shield.IsParryActive)
-                    {
-                        Vector2 cursorDir = GetCursorDirection(other.transform.position);
-                        Reflect(cursorDir);
-                        
-                        ParryEffect.SpawnFlash(transform.position);
-                        
-                        Debug.Log(">>> PARRY! Redirected to cursor! <<<");
-                        return;
-                    }
-                    else if (shield.IsBlocking)
-                    {
-                        Debug.Log("Blocked!");
-                        Destroy(gameObject);
-                        return;
-                    }
-                }
-                
                 Health playerHealth = other.GetComponent<Health>();
                 if (playerHealth != null)
                     playerHealth.TakeDamage(damage, "Enemy Projectile");
@@ -134,18 +125,19 @@ public class Projectile : MonoBehaviour
         }
     }
     
-    private Vector2 GetCursorDirection(Vector2 fromPosition)
+    private void ApplyParryEffect(GameObject target, Vector2 hitPosition)
     {
-        Camera cam = Camera.main;
-        if (cam == null || Mouse.current == null)
-            return -direction; // Fallback: обратно
-        
-        Vector2 mouseScreen = Mouse.current.position.ReadValue();
-        Vector2 mouseWorld = cam.ScreenToWorldPoint(
-            new Vector3(mouseScreen.x, mouseScreen.y, cam.nearClipPlane)
-        );
-        
-        Vector2 cursorDirection = (mouseWorld - fromPosition).normalized;
-        return cursorDirection;
+        switch (parryEffect)
+        {
+            case ParryEffectType.DeathMark:
+                DeathMarkEffect.Trigger(target, hitPosition);
+                break;
+            
+            case ParryEffectType.None:
+            default:
+                Debug.Log("Reflected hit: " + target.name + " (no effect)");
+                break;
+        }
     }
+    
 }
