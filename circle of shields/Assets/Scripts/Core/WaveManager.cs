@@ -99,17 +99,15 @@ public class WaveManager : MonoBehaviour
             
             for (int i = 0; i < group.count; i++)
             {
-                GameObject enemy = spawner.SpawnEnemy(group.prefab);
+                GameObject enemy = spawner.SpawnEnemy(group.prefab, group.spawnPointIndex);
                 
                 if (enemy != null)
                     aliveEnemies.Add(enemy);
                 
-                // Задержка между спавном каждого врага
                 if (group.spawnDelay > 0)
                     yield return new WaitForSeconds(group.spawnDelay);
             }
             
-            // Пауза между группами врагов
             if (wave.timeBetweenGroups > 0)
                 yield return new WaitForSeconds(wave.timeBetweenGroups);
         }

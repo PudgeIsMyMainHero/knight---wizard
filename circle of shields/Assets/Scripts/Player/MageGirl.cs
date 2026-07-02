@@ -24,7 +24,10 @@ public class MageGirl : MonoBehaviour
     
     private void Update()
     {
-        shootTimer -= Time.deltaTime;
+        float speedMult = GetSpeedMultiplier();
+        
+        shootTimer -= Time.deltaTime * speedMult;
+        
         if (shootTimer <= 0)
         {
             Transform target = FindClosestEnemy();
@@ -34,6 +37,13 @@ public class MageGirl : MonoBehaviour
             shootTimer = shootInterval;
         }
     }
+    
+    private float GetSpeedMultiplier()
+    {
+        Slowable slowable = GetComponent<Slowable>();
+        return slowable != null ? slowable.CurrentSpeedMultiplier : 1f;
+    }
+
     
     private Transform FindClosestEnemy()
     {

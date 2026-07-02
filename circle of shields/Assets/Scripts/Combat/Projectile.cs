@@ -104,10 +104,15 @@ public class Projectile : MonoBehaviour
         
         // Вражеский снаряд → попадает в щит? Нет — ShieldHitbox ловит раньше
         // Если долетел сюда — значит мимо щита
+        // Снаряд врага
         if (owner == ProjectileOwner.Enemy)
         {
             if (other.CompareTag("Player"))
             {
+                // Применяем эффект замедления/заморозки если ледяной
+                if (parryEffect == ParryEffectType.Frost)
+                    ApplyFrostToAlly(other.gameObject);
+                
                 Health playerHealth = other.GetComponent<Health>();
                 if (playerHealth != null)
                     playerHealth.TakeDamage(damage, "Enemy Projectile");
@@ -116,6 +121,9 @@ public class Projectile : MonoBehaviour
             }
             else if (other.CompareTag("Mage"))
             {
+                if (parryEffect == ParryEffectType.Frost)
+                    ApplyFrostToAlly(other.gameObject);
+                
                 Health mageHealth = other.GetComponent<Health>();
                 if (mageHealth != null)
                     mageHealth.TakeDamage(damage, "Enemy Projectile");
@@ -125,6 +133,16 @@ public class Projectile : MonoBehaviour
         }
     }
     
+    private void ApplyFrostToAlly(GameObject ally)
+    {
+        Slowable slowable = ally.GetComponent<Slowable>();
+        if (slowable == null)
+            slowable = ally.AddComponent<Slowable>();
+        
+        // 1-й hit = замедление, 2-й в течение stackWindow = заморозка
+        slowable.ApplyStackingFrost(0.5f, 3f);
+    }
+    
     private void ApplyParryEffect(GameObject target, Vector2 hitPosition)
     {
         switch (parryEffect)
@@ -132,7 +150,11 @@ public class Projectile : MonoBehaviour
             case ParryEffectType.DeathMark:
                 DeathMarkEffect.Trigger(target, hitPosition);
                 break;
-            
+                
+            case ParryEffectType.Frost:
+                ApplyFrostParryEffect(target, hitPosition);
+                break;
+                
             case ParryEffectType.None:
             default:
                 Debug.Log("Reflected hit: " + target.name + " (no effect)");
@@ -140,4 +162,30 @@ public class Projectile : MonoBehaviour
         }
     }
     
+    private void ApplyFrostParryEffect(GameObject target, Vector2 hitPosition)
+    {
+        // Проверяем — это ЛЕДЯНОЙ СТРЕЛОК?
+        EnemyFrostArcher frostArcher = target.GetComponent<EnemyFrostArcher>();
+        
+        if (frostArcher != null)
+        {
+            // Ледяной иммунен к своему эффекту — накладываем метку
+            FrostMark mark = target.GetComponent<FrostMark>();
+            if (mark == null)
+                mark = target.AddComponent<FrostMark>();
+            
+            mark.ApplyMark();
+            Debug.Log("FROST MARK applied to frost archer!");
+        }
+        else
+        {
+            // Обычный враг — замедляется
+            Slowable slowable = target.GetComponent<Slowable>();
+            if (slowable == null)
+                slowable = target.AddComponent<Slowable>();
+            
+            slowable.ApplySlow(0.4f, 3f);
+            Debug.Log("Frost slow applied to " + target.name);
+        }
+    }
 }

@@ -2,48 +2,45 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Spawn Settings")]
-    [SerializeField] private float arenaRadius = 12f;
-    [SerializeField] private float minDistanceFromMage = 8f;
-    [SerializeField] private Transform mageTransform;
+    [Header("Spawn Points")]
+    [SerializeField] private SpawnPoint[] spawnPoints;
     
-    public GameObject SpawnEnemy(GameObject prefab)
+    public GameObject SpawnEnemy(GameObject prefab, int pointIndex = -1)
     {
-        Vector2 spawnPos = GetSpawnPosition();
+        SpawnPoint point = ChoosePoint(pointIndex);
         
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+        if (point == null)
+        {
+            Debug.LogError("No spawn points configured!");
+            return null;
+        }
         
-        Debug.Log("Spawned: " + prefab.name + " at " + spawnPos);
+        // Спавним врага в точке
+        GameObject enemy = Instantiate(prefab, point.SpawnPosition, Quaternion.identity);
+        
+        // Получаем СЛУЧАЙНУЮ точку прибытия в области
+        Vector2 targetPosition = point.GetRandomEntryTarget();
+        
+        // Добавляем компонент входа
+        EnemiesEntry entry = enemy.AddComponent<EnemiesEntry>();
+        entry.StartEntry(targetPosition, point.EntrySpeed);
+        
+        Debug.Log("Spawned " + prefab.name + " at " + point.PointName + " → target " + targetPosition);
         return enemy;
     }
     
-    private Vector2 GetSpawnPosition()
+    private SpawnPoint ChoosePoint(int index)
     {
-        // Спавним по краю арены в случайном направлении
-        for (int i = 0; i < 30; i++)
-        {
-            float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
-            float distance = Random.Range(minDistanceFromMage, arenaRadius);
-            
-            Vector2 pos = new Vector2(
-                Mathf.Cos(angle) * distance,
-                Mathf.Sin(angle) * distance
-            );
-            
-            return pos;
-        }
+        if (spawnPoints == null || spawnPoints.Length == 0) return null;
         
-        return new Vector2(arenaRadius, 0);
+        // Конкретная точка
+        if (index >= 0 && index < spawnPoints.Length)
+            return spawnPoints[index];
+        
+        // Случайная точка
+        return spawnPoints[Random.Range(0, spawnPoints.Length)];
     }
     
-    private void OnDrawGizmosSelected()
-    {
-        // Зона спавна
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(Vector3.zero, arenaRadius);
-        
-        // Минимальная дистанция от мага
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(Vector3.zero, minDistanceFromMage);
-    }
+    // Получить количество точек (для UI/дебага)
+    public int SpawnPointCount => spawnPoints != null ? spawnPoints.Length : 0;
 }

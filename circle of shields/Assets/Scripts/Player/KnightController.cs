@@ -98,10 +98,18 @@ public class KnightController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        float speedMult = GetSpeedMultiplier();
+        
         if (isDashing)
-            rb.linearVelocity = dashDirection * (dashDistance / dashDuration);
+            rb.linearVelocity = dashDirection * (dashDistance / dashDuration) * speedMult;
         else
-            rb.linearVelocity = moveInput * moveSpeed;
+            rb.linearVelocity = moveInput * moveSpeed * speedMult;
+    }
+    
+    private float GetSpeedMultiplier()
+    {
+        Slowable slowable = GetComponent<Slowable>();
+        return slowable != null ? slowable.CurrentSpeedMultiplier : 1f;
     }
     
     private void UpdateRotationLock()
