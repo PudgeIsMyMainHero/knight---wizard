@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2632661305919707504}
   - component: {fileID: 5176765683711226796}
   - component: {fileID: 1962300372613934251}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Archer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyArcher
   projectilePrefab: {fileID: 7935057913134052841, guid: e6277c001517ac54cb468033c19bccbb, type: 3}
   shootInterval: 2
-  projectileSpeed: 8
-  projectileDamage: 20
+  projectileSpeed: 6
+  projectileDamage: 15
 --- !u!61 &1962300372613934251
 BoxCollider2D:
   m_ObjectHideFlags: 0

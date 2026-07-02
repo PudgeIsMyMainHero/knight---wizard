@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5984963721977793639}
   - component: {fileID: 6398996670967334678}
   - component: {fileID: 3108368501014839546}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Frost Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7568264773456384954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.88, y: 1.53, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50b7519131897d4eb98a31c7678a3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 40
+  maxHealth: 80
   currentHealth: 0
   OnHealthChanged:
     m_PersistentCalls:
@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFrostArcher
   projectilePrefab: {fileID: 5585847583423408007, guid: 8c9d91a558a349a41bbeddb7bb55aa2a, type: 3}
-  shootInterval: 3
-  projectileSpeed: 7
+  shootInterval: 2.5
+  projectileSpeed: 6
   projectileDamage: 15
   spriteRenderer: {fileID: 0}
 --- !u!61 &3108368501014839546

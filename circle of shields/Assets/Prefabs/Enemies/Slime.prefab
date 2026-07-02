@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6895383248109675412}
   - component: {fileID: 3921608569163147614}
   - component: {fileID: -5628413547395776758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45bd786984468af43bf5849185c3c653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySlime
-  walkSpeed: 2
+  walkSpeed: 3
   dashSpeed: 10
   dashTriggerDistance: 5
   chargeTime: 0.5
