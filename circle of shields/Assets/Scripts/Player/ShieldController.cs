@@ -124,4 +124,10 @@ public class ShieldController : MonoBehaviour
         if (shieldSprite != null)
             shieldSprite.color = color;
     }
+    
+    public void IncreaseParryWindow(float amount)
+    {
+        parryWindow += amount;
+    }
+    
 }

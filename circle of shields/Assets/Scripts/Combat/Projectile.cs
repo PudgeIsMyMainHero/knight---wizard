@@ -28,6 +28,9 @@ public class Projectile : MonoBehaviour
     public bool IsReflected => isReflected;
     public ParryEffectType ParryEffect => parryEffect;
     
+    private GameObject originalOwner;
+    public GameObject OriginalOwner => originalOwner;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -89,48 +92,34 @@ public class Projectile : MonoBehaviour
             }
             return;
         }
-        
-        // Отражённый снаряд → врагам БЕЗ урона
+
         if (isReflected)
         {
             if (other.CompareTag("Enemy"))
             {
-                // Применяем эффект парри в зависимости от типа
+                // Проверяем — это ЗОЛОТОЙ враг + попали В НЕГО САМОГО?
+                if (other.gameObject == originalOwner)
+                {
+                    EnemyGolden golden = other.GetComponent<EnemyGolden>();
+                    if (golden != null)
+                    {
+                        golden.OnGoldenHit();
+                        Destroy(gameObject);
+                        return;
+                    }
+                }
+                
+                // Обычный эффект парри
                 ApplyParryEffect(other.gameObject, transform.position);
                 Destroy(gameObject);
             }
             return;
         }
-        
-        // Вражеский снаряд → попадает в щит? Нет — ShieldHitbox ловит раньше
-        // Если долетел сюда — значит мимо щита
-        // Снаряд врага
-        if (owner == ProjectileOwner.Enemy)
-        {
-            if (other.CompareTag("Player"))
-            {
-                // Применяем эффект замедления/заморозки если ледяной
-                if (parryEffect == ParryEffectType.Frost)
-                    ApplyFrostToAlly(other.gameObject);
-                
-                Health playerHealth = other.GetComponent<Health>();
-                if (playerHealth != null)
-                    playerHealth.TakeDamage(damage, "Enemy Projectile");
-                
-                Destroy(gameObject);
-            }
-            else if (other.CompareTag("Mage"))
-            {
-                if (parryEffect == ParryEffectType.Frost)
-                    ApplyFrostToAlly(other.gameObject);
-                
-                Health mageHealth = other.GetComponent<Health>();
-                if (mageHealth != null)
-                    mageHealth.TakeDamage(damage, "Enemy Projectile");
-                
-                Destroy(gameObject);
-            }
-        }
+    }
+    
+    public void SetOriginalOwner(GameObject owner)
+    {
+        originalOwner = owner;
     }
     
     private void ApplyFrostToAlly(GameObject ally)

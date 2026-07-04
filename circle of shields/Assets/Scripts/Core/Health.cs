@@ -62,4 +62,10 @@ public class Health : MonoBehaviour
     {
         isInvulnerable = value;
     }
+    
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
 }

@@ -62,17 +62,14 @@ public class EnemyArcher : MonoBehaviour
         
         Vector2 direction = (target.position - transform.position).normalized;
         
-        GameObject proj = Instantiate(
-            projectilePrefab,
-            transform.position,
-            Quaternion.identity
-        );
+        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         
         Projectile projectile = proj.GetComponent<Projectile>();
         if (projectile != null)
         {
             projectile.Initialize(direction, projectileSpeed, projectileDamage);
             projectile.SetParryEffect(Projectile.ParryEffectType.DeathMark);
+            projectile.SetOriginalOwner(gameObject);   // ← ДОБАВИТЬ
         }
     }
 }

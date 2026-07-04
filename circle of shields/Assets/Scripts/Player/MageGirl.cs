@@ -14,6 +14,10 @@ public class MageGirl : MonoBehaviour
     [SerializeField] private int forcedAttackDamage = 50;
     [SerializeField] private float forcedProjectileSpeed = 15f;
     
+    [Header("Multi Shot")]
+    [SerializeField] private int projectilesPerShot = 1;
+    [SerializeField] private float burstDelay = 0.15f;
+    
     // State
     private float shootTimer;
     
@@ -99,5 +103,16 @@ public class MageGirl : MonoBehaviour
             Debug.Log("Mage FORCED ATTACK on " + target.name + "!");
             Shoot(target, forcedAttackDamage, forcedProjectileSpeed);
         }
+    }
+    
+    public void MultiplyShootInterval(float multiplier)
+    {
+        shootInterval *= multiplier;
+        shootInterval = Mathf.Max(0.2f, shootInterval); // Минимум 0.2 сек
+    }
+    
+    public void AddDamage(int amount)
+    {
+        projectileDamage += amount;
     }
 }
