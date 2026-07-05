@@ -17,6 +17,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   category: 0
   rarity: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: a039064f868ed9d458bc9e5edaf73c95, type: 2}
   maxStacks: 3
   weight: 1

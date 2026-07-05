@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -37,8 +37,7 @@ public class KnightController : MonoBehaviour
                 new Vector3(mouseScreenPos.x, mouseScreenPos.y, mainCamera.nearClipPlane)
             );
         }
-        
-        RotateTowardsMouse();
+
     }
     
     private void FixedUpdate()
@@ -52,12 +51,7 @@ public class KnightController : MonoBehaviour
         rb.linearVelocity = moveInput * moveSpeed * speedMult;
     }
     
-    private void RotateTowardsMouse()
-    {
-        Vector2 direction = (mouseWorldPosition - (Vector2)transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
-    }
+    
     
     private float GetSpeedMultiplier()
     {

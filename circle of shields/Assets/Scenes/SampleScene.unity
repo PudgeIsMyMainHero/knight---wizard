@@ -714,7 +714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &468699980
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2218,6 +2218,75 @@ PolygonCollider2D:
       - {x: 13.912481, y: 7.21953}
       - {x: 15.758078, y: 12.014366}
   m_UseDelaunayMesh: 1
+--- !u!1001 &1027094193
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.130349
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.509691
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3948313140630316646, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004448460320163939, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004448460320163939, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004448460320163939, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7568264773456384954, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
+      propertyPath: m_Name
+      value: Frost Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 787f2b1d3ad251743a47f743da0d54b4, type: 3}
 --- !u!1 &1112758926
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2425,61 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1372093379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1372093381}
+  - component: {fileID: 1372093380}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1372093380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372093379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828fa4a0f65c0164b810ed432bfe7197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  allUpgrades:
+  - {fileID: 11400000, guid: 40f73632488019d4b96c68a4e0444207, type: 2}
+  - {fileID: 11400000, guid: 94bf0a2797e14c044829194d58e18f2a, type: 2}
+  - {fileID: 11400000, guid: 2cc83836e310b4540bd0c07a92377975, type: 2}
+  choicesPerOffer: 3
+  OnUpgradesOffered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUpgradeApplied:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1372093381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372093379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504051129
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,19 +3161,7 @@ MonoBehaviour:
     m_ActionId: cb666004-893e-4de2-a127-2f1cff32686d
     m_ActionName: 'Player/Block[/Mouse/leftButton]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1681022464}
-        m_TargetAssemblyTypeName: KnightController, Assembly-CSharp
-        m_MethodName: OnDash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 74fd87c1-0945-4ac9-a498-52842c166caf
     m_ActionName: 'Player/Dash[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -3070,11 +3182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KnightController
   moveSpeed: 5
-  dashDistance: 3
-  dashDuration: 0.2
-  dashCooldown: 3
-  shieldTransform: {fileID: 869708819}
-  shieldController: {fileID: 0}
+  shieldMoveSpeedMultiplier: 0.5
+  shieldController: {fileID: 869708821}
 --- !u!70 &1681022465
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3195,7 +3304,7 @@ GameObject:
   - component: {fileID: 1731515873}
   - component: {fileID: 1731515872}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Window_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3370,6 +3479,7 @@ GameObject:
   - component: {fileID: 1816473339}
   - component: {fileID: 1816473343}
   - component: {fileID: 1816473344}
+  - component: {fileID: 1816473345}
   m_Layer: 7
   m_Name: MageGirl
   m_TagString: Mage
@@ -3397,6 +3507,8 @@ MonoBehaviour:
   forcedAttackDelay: 0.3
   forcedAttackDamage: 15
   forcedProjectileSpeed: 10
+  projectilesPerShot: 1
+  burstDelay: 0.15
 --- !u!58 &1816473340
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3579,6 +3691,42 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!58 &1816473345
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816473338}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
 --- !u!1 &1852015319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,3 +4414,5 @@ SceneRoots:
   - {fileID: 1771227596}
   - {fileID: 981198760}
   - {fileID: 704014246}
+  - {fileID: 1372093381}
+  - {fileID: 1027094193}

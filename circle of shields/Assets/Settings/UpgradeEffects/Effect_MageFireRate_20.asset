@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494cad66d5683e64384b48cbc9489d3b, type: 3}
   m_Name: Effect_MageFireRate_20
   m_EditorClassIdentifier: Assembly-CSharp::MageFireRateEffect
-  effectDescription: Base effect
+  effectDescription: 'Multiplies Mage''s fire rate '
   intervalMultiplier: 0.8

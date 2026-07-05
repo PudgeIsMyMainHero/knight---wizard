@@ -79,7 +79,6 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Снаряд девочки → врагам
         if (owner == ProjectileOwner.Player && !isReflected)
         {
             if (other.CompareTag("Enemy"))
@@ -97,7 +96,6 @@ public class Projectile : MonoBehaviour
         {
             if (other.CompareTag("Enemy"))
             {
-                // Проверяем — это ЗОЛОТОЙ враг + попали В НЕГО САМОГО?
                 if (other.gameObject == originalOwner)
                 {
                     EnemyGolden golden = other.GetComponent<EnemyGolden>();
@@ -109,11 +107,30 @@ public class Projectile : MonoBehaviour
                     }
                 }
                 
-                // Обычный эффект парри
                 ApplyParryEffect(other.gameObject, transform.position);
                 Destroy(gameObject);
             }
             return;
+        }
+
+        if (owner == ProjectileOwner.Enemy)
+        {
+            if (other.CompareTag("Player"))
+            {
+                Health playerHealth = other.GetComponent<Health>();
+                if (playerHealth != null)
+                    playerHealth.TakeDamage(damage, "Enemy Projectile");
+                
+                Destroy(gameObject);
+            }
+            else if (other.CompareTag("Mage"))
+            {
+                Health mageHealth = other.GetComponent<Health>();
+                if (mageHealth != null)
+                    mageHealth.TakeDamage(damage, "Enemy Projectile");
+                
+                Destroy(gameObject);
+            }
         }
     }
     
@@ -127,8 +144,7 @@ public class Projectile : MonoBehaviour
         Slowable slowable = ally.GetComponent<Slowable>();
         if (slowable == null)
             slowable = ally.AddComponent<Slowable>();
-        
-        // 1-й hit = замедление, 2-й в течение stackWindow = заморозка
+
         slowable.ApplyStackingFrost(0.5f, 3f);
     }
     
@@ -153,12 +169,10 @@ public class Projectile : MonoBehaviour
     
     private void ApplyFrostParryEffect(GameObject target, Vector2 hitPosition)
     {
-        // Проверяем — это ЛЕДЯНОЙ СТРЕЛОК?
         EnemyFrostArcher frostArcher = target.GetComponent<EnemyFrostArcher>();
         
         if (frostArcher != null)
         {
-            // Ледяной иммунен к своему эффекту — накладываем метку
             FrostMark mark = target.GetComponent<FrostMark>();
             if (mark == null)
                 mark = target.AddComponent<FrostMark>();
@@ -168,7 +182,6 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            // Обычный враг — замедляется
             Slowable slowable = target.GetComponent<Slowable>();
             if (slowable == null)
                 slowable = target.AddComponent<Slowable>();

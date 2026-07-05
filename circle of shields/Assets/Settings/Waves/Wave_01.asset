@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed6beef30f8bd6548bb979bbd4438d70, type: 3}
+  m_Script: {fileID: 11500000, guid: ebcc2bda185a7c649810e9e8c2fcb1c8, type: 3}
   m_Name: Wave_01
-  m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  waveName: Wave 1
-  enemies:
-  - prefab: {fileID: 4049915654939114645, guid: 72b6040a389629741a81a1120b7ef358, type: 3}
-    count: 2
-    spawnDelay: 1
-    spawnPointIndex: 0
-  timeBetweenGroups: 1
+  m_EditorClassIdentifier: Assembly-CSharp::WaveBudgetData
+  waveName: First Blood
+  budget: 30
+  spawnInterval: 1.5
+  spawnIntervalVariance: 0.5
+  availableEnemies: []
+  guaranteedGoldenCount: 0
+  randomGoldenChance: 0

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e4bf2ab94e9649946c50cb757816b, type: 3}
   m_Name: Upgrade_KnightHP
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: New Upgrade
-  description: Description of the upgrade
+  upgradeName: Iron Body
+  description: The Knight gains +30 max HP
   icon: {fileID: 0}
   category: 0
   rarity: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: fd022b71b145bc24f920827a3234b66a, type: 2}
   maxStacks: 3
   weight: 1

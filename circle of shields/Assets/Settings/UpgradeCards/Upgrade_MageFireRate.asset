@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e4bf2ab94e9649946c50cb757816b, type: 3}
   m_Name: Upgrade_MageFireRate
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: New Upgrade
-  description: Description of the upgrade
+  upgradeName: Quick Cast
+  description: The Mage attacks 20% faster
   icon: {fileID: 0}
   category: 0
   rarity: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: f2d19bed097ea4843b29d9f9591d1438, type: 2}
   maxStacks: 3
   weight: 1

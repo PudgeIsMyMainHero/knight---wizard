@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Points")]
     [SerializeField] private SpawnPoint[] spawnPoints;
     
-    public GameObject SpawnEnemy(GameObject prefab, int pointIndex = -1)
+    public GameObject SpawnEnemy(GameObject prefab, int pointIndex = -1, bool makeGolden = false)
     {
         SpawnPoint point = ChoosePoint(pointIndex);
         
@@ -15,17 +15,24 @@ public class EnemySpawner : MonoBehaviour
             return null;
         }
         
-        // Спавним врага в точке
+        // Спавним врага
         GameObject enemy = Instantiate(prefab, point.SpawnPosition, Quaternion.identity);
         
-        // Получаем СЛУЧАЙНУЮ точку прибытия в области
+        // Целевая позиция входа
         Vector2 targetPosition = point.GetRandomEntryTarget();
         
-        // Добавляем компонент входа
+        // Добавляем компонент входа на арену
         EnemiesEntry entry = enemy.AddComponent<EnemiesEntry>();
         entry.StartEntry(targetPosition, point.EntrySpeed);
         
-        Debug.Log("Spawned " + prefab.name + " at " + point.PointName + " → target " + targetPosition);
+        // Делаем золотым если нужно
+        if (makeGolden)
+        {
+            enemy.AddComponent<EnemyGolden>();
+        }
+        
+        Debug.Log("Spawned " + prefab.name + " at " + point.PointName + 
+                  (makeGolden ? " ★GOLDEN" : ""));
         return enemy;
     }
     

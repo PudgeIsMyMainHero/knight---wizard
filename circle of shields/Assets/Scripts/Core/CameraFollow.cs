@@ -71,8 +71,7 @@ public class CameraFollow : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (!showBounds) return;
-        
-        // Границы фона
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube((Vector3)backgroundCenter, (Vector3)backgroundSize);
         

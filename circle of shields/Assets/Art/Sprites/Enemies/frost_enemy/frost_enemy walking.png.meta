@@ -1,0 +1,337 @@
+fileFormatVersion: 2
+guid: 23b7250dbb5019f48b8cd2a69a89f32f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8266490776176910647
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_0"
+  - first:
+      213: -4768323949486076038
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_1"
+  - first:
+      213: 2336393755987577920
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_2"
+  - first:
+      213: -7303372174303868203
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_3"
+  - first:
+      213: 8709422457687102648
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_4"
+  - first:
+      213: -5212342089163625261
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_5"
+  - first:
+      213: -2336836355027369779
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_6"
+  - first:
+      213: -6481722781524489891
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_7"
+  - first:
+      213: -8590578225591709889
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_8"
+  - first:
+      213: -6238983196383838300
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_9"
+  - first:
+      213: -1336217680914385303
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_10"
+  - first:
+      213: 2986065635225141709
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_11"
+  - first:
+      213: -7600254511539676597
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u043F\u043E\u0445\u043E\u0434\u043A\u0430)_12"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: frost_enemy walking_0
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 80
+        width: 399
+        height: 560
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00836e571fb5e2a4dbfc6ba97cfd67ca
+      internalID: -7444281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_2
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 82
+        width: 412
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 764d2a9d79d71bd4fa10493c9d173d4b
+      internalID: 329564974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_4
+      rect:
+        serializedVersion: 2
+        x: 1577
+        y: 82
+        width: 442
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97db77a2a0403a47b0f0dbbf37c271f
+      internalID: -1274735561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_5
+      rect:
+        serializedVersion: 2
+        x: 2299
+        y: 75
+        width: 441
+        height: 568
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8eda0d2d41ad241b7152ff818b2079
+      internalID: -289885122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_6
+      rect:
+        serializedVersion: 2
+        x: 3027
+        y: 82
+        width: 415
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c22e5459f0706d40bc6718afae60bed
+      internalID: -993890070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_8
+      rect:
+        serializedVersion: 2
+        x: 3746
+        y: 75
+        width: 407
+        height: 563
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83dbb4e8589b991439f511a0fb54cb40
+      internalID: -1392688867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy walking_10
+      rect:
+        serializedVersion: 2
+        x: 4467
+        y: 85
+        width: 399
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acd3a301f1481542b9dda2da613fc77
+      internalID: -1088200255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a2c23ddf8fc942643b7edd07372a496a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      frost_enemy walking_0: -7444281
+      frost_enemy walking_1: 1611858137
+      frost_enemy walking_10: -1088200255
+      frost_enemy walking_11: 1807690460
+      frost_enemy walking_2: 329564974
+      frost_enemy walking_3: 851893067
+      frost_enemy walking_4: -1274735561
+      frost_enemy walking_5: -289885122
+      frost_enemy walking_6: -993890070
+      frost_enemy walking_7: -861093072
+      frost_enemy walking_8: -1392688867
+      frost_enemy walking_9: 721761324
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

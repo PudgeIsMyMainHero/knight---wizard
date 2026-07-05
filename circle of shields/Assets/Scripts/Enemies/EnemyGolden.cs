@@ -19,6 +19,10 @@ public class EnemyGolden : MonoBehaviour
     private GameObject glowVisual;
     private bool triggered = false;
     
+    [Header("Health Boost")]
+    [SerializeField] private int bonusHealth = 100;
+
+    
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +35,14 @@ public class EnemyGolden : MonoBehaviour
         ApplyGoldenAppearance();
         if (spawnGlowEffect)
             CreateGlow();
+        
+        // Больше HP вместо неуязвимости
+        Health health = GetComponent<Health>();
+        if (health != null)
+        {
+            health.IncreaseMaxHealth(bonusHealth);
+            health.Heal(bonusHealth);
+        }
     }
     
     private void Update()
@@ -82,17 +94,16 @@ public class EnemyGolden : MonoBehaviour
         if (triggered) return;
         triggered = true;
         
-        Debug.Log("★ GOLDEN ENEMY HIT! Upgrade offer!");
+        Debug.Log("★ GOLDEN ENEMY HIT!");
         
-        // Убираем визуальные эффекты
         if (glowVisual != null)
             Destroy(glowVisual);
         
-        // Триггерим выбор апгрейдов
+        // Открываем выбор апгрейдов (было TestApplyRandomUpgrade)
         if (UpgradeManager.Instance != null)
             UpgradeManager.Instance.OfferUpgrades();
         
-        // Убиваем врага (он выполнил свою функцию)
+        // Убиваем врага
         Health health = GetComponent<Health>();
         if (health != null)
             health.TakeDamage(9999, "Golden Enemy Sacrifice");
