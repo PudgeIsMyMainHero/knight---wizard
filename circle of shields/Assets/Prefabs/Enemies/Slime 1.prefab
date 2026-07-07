@@ -120,7 +120,7 @@ MonoBehaviour:
   explosionRadius: 3
   explosionDamage: 30
   waitForHitTimeout: 3
-  contactDamage: 25
+  contactDamage: 20
   spriteRenderer: {fileID: 0}
   normalColor: {r: 1, g: 0.2, b: 0.2, a: 1}
   chargeColor: {r: 1, g: 0.5, b: 0, a: 1}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50b7519131897d4eb98a31c7678a3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 40
+  maxHealth: 50
   currentHealth: 0
   OnHealthChanged:
     m_PersistentCalls:

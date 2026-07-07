@@ -29,6 +29,9 @@ public class EnemySpawner : MonoBehaviour
         if (makeGolden)
         {
             enemy.AddComponent<EnemyGolden>();
+            MageDialogue dialogue = FindObjectOfType<MageDialogue>();
+            if (dialogue != null)
+                dialogue.OnGoldenAppears();
         }
         
         Debug.Log("Spawned " + prefab.name + " at " + point.PointName + 

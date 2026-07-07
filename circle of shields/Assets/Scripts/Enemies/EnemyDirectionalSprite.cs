@@ -63,6 +63,20 @@ public class EnemyDirectionalSprite : MonoBehaviour
         {
             cachedTarget = customTarget;
         }
+        
+        // Инициализация flip
+        InitializeFlip();
+    }
+    
+    private void InitializeFlip()
+    {
+        Vector2 dir = GetDirectionVector();
+        if (Mathf.Abs(dir.x) > 0.1f && targetRenderer != null)
+        {
+            bool movingRight = dir.x > 0;
+            lastFlipState = movingRight ? sideFacesLeft : !sideFacesLeft;
+            targetRenderer.flipX = lastFlipState;
+        }
     }
     
     private void LateUpdate()
@@ -108,20 +122,23 @@ public class EnemyDirectionalSprite : MonoBehaviour
         return false;
     }
     
+    private bool lastFlipState = false;
+    
     private void ApplyFlipForDirection()
     {
-        switch (currentDirection)
+        if (rb == null || targetRenderer == null) return;
+        
+        Vector2 velocity = rb.linearVelocity;
+        
+        // Обновляем flip при заметном движении по X
+        if (Mathf.Abs(velocity.x) > 0.3f)
         {
-            case Direction.Right:
-                targetRenderer.flipX = sideFacesLeft;
-                break;
-                
-            case Direction.Left:
-            case Direction.Up:
-            case Direction.Down:
-                targetRenderer.flipX = !sideFacesLeft;
-                break;
+            bool movingRight = velocity.x > 0;
+            lastFlipState = movingRight ? sideFacesLeft : !sideFacesLeft;
         }
+        
+        // Применяем всегда (сохраняет flip при движении только по Y)
+        targetRenderer.flipX = lastFlipState;
     }
     
     private bool IsMoving()

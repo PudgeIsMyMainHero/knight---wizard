@@ -21,6 +21,13 @@ public class WaveManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private EnemySpawner spawner;
     
+    [Header("Smart Spawn")]
+    [SerializeField] private bool useSmartSpawn = true;
+    [SerializeField] private float maxThreatForSpawn = 15f;
+    [SerializeField] private float threatCheckInterval = 0.5f;
+    [SerializeField] private float maxWaitTime = 5f;   // максимум ждать
+    [SerializeField] private bool logThreat = false;
+    
     // State
     private WaveState currentState = WaveState.Preparing;
     private int currentWaveIndex = 0;
@@ -31,6 +38,9 @@ public class WaveManager : MonoBehaviour
     // Tracking для лимитов
     private Dictionary<EnemyData, int> spawnedThisWave = new Dictionary<EnemyData, int>();
     private Dictionary<EnemyData, float> lastSpawnTime = new Dictionary<EnemyData, float>();
+    
+    private Dictionary<SpawnPoint, float> activeSpawnPoints = new Dictionary<SpawnPoint, float>();
+    private float spawnPointCooldown = 3f;   // сколько точка "занята" после спавна
     
     // Properties
     public WaveState CurrentState => currentState;
@@ -70,6 +80,40 @@ public class WaveManager : MonoBehaviour
         }
     }
     
+    private SpawnPoint ChooseAvailableSpawnPoint(SpawnPoint[] allowed, int maxActive)
+    {
+        // Очищаем устаревшие точки
+        var expired = new List<SpawnPoint>();
+        foreach (var kvp in activeSpawnPoints)
+        {
+            if (Time.time - kvp.Value > spawnPointCooldown)
+                expired.Add(kvp.Key);
+        }
+        foreach (var sp in expired)
+            activeSpawnPoints.Remove(sp);
+        
+        // Если активных точек меньше max — можем спавнить в новую
+        if (activeSpawnPoints.Count < maxActive)
+        {
+            // Выбираем неактивную точку
+            var candidates = new List<SpawnPoint>();
+            foreach (var sp in allowed)
+                if (!activeSpawnPoints.ContainsKey(sp))
+                    candidates.Add(sp);
+            
+            if (candidates.Count > 0)
+            {
+                SpawnPoint chosen = candidates[Random.Range(0, candidates.Count)];
+                activeSpawnPoints[chosen] = Time.time;
+                return chosen;
+            }
+        }
+        
+        // Иначе — из активных
+        var activeList = new List<SpawnPoint>(activeSpawnPoints.Keys);
+        return activeList[Random.Range(0, activeList.Count)];
+    }
+    
     private void UpdatePreparing()
     {
         stateTimer -= Time.deltaTime;
@@ -94,9 +138,12 @@ public class WaveManager : MonoBehaviour
         lastSpawnTime.Clear();
         
         StartCoroutine(SpawnWaveByBudget(wave));
+        MageDialogue dialogue = FindObjectOfType<MageDialogue>();
+        if (dialogue != null)
+            dialogue.OnWaveStart();
     }
     
-    private IEnumerator SpawnWaveByBudget(WaveBudgetData wave)
+        private IEnumerator SpawnWaveByBudget(WaveBudgetData wave)
     {
         isSpawning = true;
         int remainingBudget = wave.budget;
@@ -116,9 +163,15 @@ public class WaveManager : MonoBehaviour
         }
         
         // Пока есть бюджет — покупаем врагов
-        int safetyCounter = 200; // Защита от бесконечного цикла
+        int safetyCounter = 200;
         while (remainingBudget > 0 && safetyCounter-- > 0)
         {
+            // === SMART SPAWN: ждём если threat слишком высокий ===
+            if (useSmartSpawn)
+            {
+                yield return StartCoroutine(WaitForThreatDrop());
+            }
+            
             EnemyData chosen = PickAffordableEnemy(pool, remainingBudget);
             
             if (chosen == null)
@@ -130,7 +183,7 @@ public class WaveManager : MonoBehaviour
             // Определяем — золотой?
             bool isGolden = false;
             
-            if (chosen.canBeGolden)   // только если враг может быть золотым
+            if (chosen.canBeGolden)
             {
                 if (goldensLeft > 0)
                 {
@@ -150,7 +203,6 @@ public class WaveManager : MonoBehaviour
             {
                 aliveEnemies.Add(enemy);
                 
-                // Учитываем
                 if (!spawnedThisWave.ContainsKey(chosen))
                     spawnedThisWave[chosen] = 0;
                 spawnedThisWave[chosen]++;
@@ -173,6 +225,33 @@ public class WaveManager : MonoBehaviour
         currentState = WaveState.InProgress;
         
         Debug.Log("Wave spawn complete. Total enemies: " + aliveEnemies.Count);
+    }
+    
+    private IEnumerator WaitForThreatDrop()
+    {
+        float waitedTime = 0f;
+        
+        while (waitedTime < maxWaitTime)
+        {
+            float currentThreat = ThreatCalculator.CalculateCurrentThreat();
+            
+            if (logThreat)
+            {
+                Debug.Log("[Threat] " + currentThreat.ToString("F1") + 
+                          " / " + maxThreatForSpawn + " (" + 
+                          ThreatCalculator.GetThreatCategory(currentThreat) + ")");
+            }
+            
+            if (currentThreat <= maxThreatForSpawn)
+                yield break;   // угроза приемлемая — спавним
+            
+            yield return new WaitForSeconds(threatCheckInterval);
+            waitedTime += threatCheckInterval;
+        }
+        
+        // Максимум ждали — всё равно спавним
+        if (logThreat)
+            Debug.Log("[Threat] Max wait reached, spawning anyway");
     }
     
     /// Выбирает случайного врага которого можем себе позволить (с учётом лимитов)
@@ -273,6 +352,10 @@ public class WaveManager : MonoBehaviour
         
         currentState = WaveState.Completed;
         stateTimer = timeBetweenWaves;
+        
+        MageDialogue dialogue = FindObjectOfType<MageDialogue>();
+        if (dialogue != null)
+            dialogue.OnWaveEnd();
     }
     
     private void UpdateCompleted()

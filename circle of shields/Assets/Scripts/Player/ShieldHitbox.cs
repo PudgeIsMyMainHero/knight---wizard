@@ -37,6 +37,9 @@ public class ShieldHitbox : MonoBehaviour
                     mage.OnParryHappened();
                 if (PerfectDuetManager.Instance != null)
                     PerfectDuetManager.Instance.OnParry();
+                MageDialogue dialogue = FindObjectOfType<MageDialogue>();
+                if (dialogue != null)
+                    dialogue.OnParryHappened();
             }
             else if (shieldController.IsBlocking)
             {

@@ -28,4 +28,8 @@ public class WaveBudgetData : ScriptableObject
     [Tooltip("Шанс что каждый обычный враг станет золотым (0-1)")]
     [Range(0f, 1f)]
     public float randomGoldenChance = 0f;
+    
+    [Header("Directional Limits")]
+    [Tooltip("Максимум активных точек спавна одновременно")]
+    public int maxActiveSpawnPoints = 2;
 }

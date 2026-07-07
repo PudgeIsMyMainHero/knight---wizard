@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Wave_1
   m_EditorClassIdentifier: Assembly-CSharp::WaveBudgetData
   waveName: First Blood
-  budget: 20
+  budget: 30
   spawnInterval: 2
   spawnIntervalVariance: 0
   availableEnemies:
   - {fileID: 11400000, guid: 7f38ec2a11d46fb458f337550c3d6bd5, type: 2}
   guaranteedGoldenCount: 0
   randomGoldenChance: 0
+  maxActiveSpawnPoints: 2
