@@ -20,6 +20,14 @@ public class KnightDirectionalSprite : MonoBehaviour
     [SerializeField] private SpriteRenderer targetRenderer;
     [SerializeField] private ShieldController shieldController;
     
+    [Header("Animator")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private Rigidbody2D rb;
+    
+    [SerializeField] private float minMovementThreshold = 0.1f;
+    
+    private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
+    
     private Camera cam;
     
     private void Awake()
@@ -29,6 +37,12 @@ public class KnightDirectionalSprite : MonoBehaviour
         
         if (shieldController == null)
             shieldController = GetComponent<ShieldController>();
+        
+        if (animator == null)
+            animator = GetComponent<Animator>();
+        
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
         
         cam = Camera.main;
     }
@@ -44,16 +58,51 @@ public class KnightDirectionalSprite : MonoBehaviour
         
         float angle = GetAimAngle();
         bool shieldUp = IsShieldRaised();
+        bool isMoving = IsMoving();
+        
+        bool shouldPlayWalkAnim = isMoving && !shieldUp;
+        
+        if (animator != null)
+            animator.SetBool(IsMovingHash, shouldPlayWalkAnim);
         
         Sprite selectedSprite;
-        bool flip;
-        SelectSprite(angle, shieldUp, out selectedSprite, out flip);
+        bool flipByCursor;
+        SelectSprite(angle, shieldUp, out selectedSprite, out flipByCursor);
         
-        if (selectedSprite != null)
-            targetRenderer.sprite = selectedSprite;
-        
-        targetRenderer.flipX = flip;
+        if (shouldPlayWalkAnim)
+        {
+            // Флип по направлению движения (не курсора)
+            bool flipByMovement = GetFlipByMovement();
+            targetRenderer.flipX = flipByMovement;
+        }
+        else
+        {
+            if (selectedSprite != null)
+                targetRenderer.sprite = selectedSprite;
+            targetRenderer.flipX = flipByCursor;
+        }
     }
+    
+    private bool GetFlipByMovement()
+    {
+        if (rb == null) return false;
+        
+        Vector2 vel = rb.linearVelocity;
+        
+        // Если движение по X больше — флип по X
+        if (Mathf.Abs(vel.x) > 0.1f)
+            return vel.x > 0;   // движется вправо → флип
+        
+        // Если только по Y — флип по курсору (сохраняем предыдущий)
+        return targetRenderer.flipX;
+    }
+    
+    private bool IsMoving()
+    {
+        if (rb == null) return false;
+        return rb.linearVelocity.magnitude > minMovementThreshold;
+    }
+
     
     private float GetAimAngle()
     {

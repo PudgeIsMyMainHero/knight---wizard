@@ -10,14 +10,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Health knightHealth;
     [SerializeField] private Health mageHealth;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject victoryPanel;
     
     [Header("Settings")]
     [SerializeField] private float gameOverSlowdown = 0.3f;
     [SerializeField] private float restartDelay = 3f;
+    [SerializeField] private float victoryRestartDelay = 10f;
     
     private bool isGameOver = false;
+    private bool isVictory = false;
     
     public bool IsGameOver => isGameOver;
+    public bool IsVictory => isVictory;
     
     private void Awake()
     {
@@ -41,6 +45,9 @@ public class GameManager : MonoBehaviour
         
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
+        
+        if (victoryPanel != null)
+            victoryPanel.SetActive(false);
     }
     
     private void OnKnightDied()
@@ -55,7 +62,7 @@ public class GameManager : MonoBehaviour
     
     private void TriggerGameOver(string reason)
     {
-        if (isGameOver) return;
+        if (isGameOver || isVictory) return;
         
         isGameOver = true;
         Debug.Log("GAME OVER: " + reason);
@@ -71,14 +78,27 @@ public class GameManager : MonoBehaviour
                 ui.SetReason(reason);
         }
         
-        // Автоперезапуск через delay
-        StartCoroutine(RestartAfterDelay());
+        StartCoroutine(RestartAfterDelay(restartDelay));
     }
     
-    private IEnumerator RestartAfterDelay()
+    public void TriggerVictory()
     {
-        // Используем unscaled time чтобы не зависеть от Time.timeScale
-        yield return new WaitForSecondsRealtime(restartDelay);
+        if (isGameOver || isVictory) return;
+        
+        isVictory = true;
+        Debug.Log("=== VICTORY! ===");
+        
+        Time.timeScale = 0.5f;
+        
+        if (victoryPanel != null)
+            victoryPanel.SetActive(true);
+        
+        StartCoroutine(RestartAfterDelay(victoryRestartDelay));
+    }
+    
+    private IEnumerator RestartAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
         
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

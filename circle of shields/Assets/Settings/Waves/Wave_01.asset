@@ -17,5 +17,5 @@ MonoBehaviour:
   spawnInterval: 1.5
   spawnIntervalVariance: 0.5
   availableEnemies: []
-  guaranteedGoldenCount: 0
+  guaranteedGoldenCount: 1
   randomGoldenChance: 0

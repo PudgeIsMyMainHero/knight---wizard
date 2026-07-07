@@ -290,5 +290,9 @@ public class WaveManager : MonoBehaviour
     {
         currentState = WaveState.GameOver;
         Debug.Log("=== VICTORY! ===");
+        
+        // Триггерим экран победы
+        if (GameManager.Instance != null)
+            GameManager.Instance.TriggerVictory();
     }
 }

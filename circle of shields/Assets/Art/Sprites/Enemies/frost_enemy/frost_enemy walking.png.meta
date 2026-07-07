@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -152,10 +152,10 @@ TextureImporter:
       name: frost_enemy walking_0
       rect:
         serializedVersion: 2
-        x: 148
-        y: 80
-        width: 399
-        height: 560
+        x: 0
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: frost_enemy walking_2
       rect:
         serializedVersion: 2
-        x: 866
-        y: 82
-        width: 412
-        height: 558
+        x: 1440
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: frost_enemy walking_4
       rect:
         serializedVersion: 2
-        x: 1577
-        y: 82
-        width: 442
-        height: 558
+        x: 2880
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: frost_enemy walking_5
       rect:
         serializedVersion: 2
-        x: 2299
-        y: 75
-        width: 441
-        height: 568
+        x: 3600
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: frost_enemy walking_6
       rect:
         serializedVersion: 2
-        x: 3027
-        y: 82
-        width: 415
-        height: 558
+        x: 4320
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,13 +259,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frost_enemy walking_8
+      name: frost_enemy walking_1
       rect:
         serializedVersion: 2
-        x: 3746
-        y: 75
-        width: 407
-        height: 563
+        x: 720
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83dbb4e8589b991439f511a0fb54cb40
-      internalID: -1392688867
+      spriteID: 6c4bd01b5710d484c848ab3f903ff23d
+      internalID: 1611858137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frost_enemy walking_10
+      name: frost_enemy walking_3
       rect:
         serializedVersion: 2
-        x: 4467
-        y: 85
-        width: 399
-        height: 553
+        x: 2160
+        y: 0
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,8 +296,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8acd3a301f1481542b9dda2da613fc77
-      internalID: -1088200255
+      spriteID: e7b0be94cc885e945b932543e43b2dec
+      internalID: 851893067
       vertices: []
       indices: 
       edges: []
@@ -316,20 +316,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":7.0,"y":1.0},"gridSpriteSize":{"x":720.0,"y":720.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       frost_enemy walking_0: -7444281
       frost_enemy walking_1: 1611858137
-      frost_enemy walking_10: -1088200255
-      frost_enemy walking_11: 1807690460
       frost_enemy walking_2: 329564974
       frost_enemy walking_3: 851893067
       frost_enemy walking_4: -1274735561
       frost_enemy walking_5: -289885122
       frost_enemy walking_6: -993890070
-      frost_enemy walking_7: -861093072
-      frost_enemy walking_8: -1392688867
-      frost_enemy walking_9: 721761324
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

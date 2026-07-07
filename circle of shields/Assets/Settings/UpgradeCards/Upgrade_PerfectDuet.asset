@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e4bf2ab94e9649946c50cb757816b, type: 3}
+  m_Name: Upgrade_PerfectDuet
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: Perfect Duet
+  description: Each parry restores 5 HP to both allies
+  icon: {fileID: 0}
+  category: 2
+  rarity: 1
+  effect: {fileID: 11400000, guid: f8b45c2fd17858644a99529f968d129f, type: 2}
+  maxStacks: 3
+  weight: 1

@@ -15,10 +15,15 @@ public class EnemyFrostArcher: MonoBehaviour
     private float shootTimer;
     private Transform target;
     
+    private Animator animator;
+    private static readonly int AttackTriggerHash = Animator.StringToHash("Attack");
+    
     private void Awake()
     {
         if (spriteRenderer == null)
             spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        animator = GetComponent<Animator>();
     }
     
     private void Start()
@@ -50,15 +55,23 @@ public class EnemyFrostArcher: MonoBehaviour
             Shoot();
             shootTimer = shootInterval;
         }
-        
-        Vector2 dir = (target.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
     
     private void Shoot()
     {
         if (projectilePrefab == null || target == null) return;
+        
+        // Только триггерим анимацию
+        // Снаряд заспавнится через Animation Event
+        if (animator != null)
+            animator.SetTrigger(AttackTriggerHash);
+    }
+    
+    // ВЫЗЫВАЕТСЯ ИЗ ANIMATION EVENT
+    public void SpawnProjectileEvent()
+    {
+        if (target == null) return;
+        if (projectilePrefab == null) return;
         
         Vector2 direction = (target.position - transform.position).normalized;
         
@@ -69,6 +82,7 @@ public class EnemyFrostArcher: MonoBehaviour
         {
             projectile.Initialize(direction, projectileSpeed, projectileDamage);
             projectile.SetParryEffect(Projectile.ParryEffectType.Frost);
+            projectile.SetOriginalOwner(gameObject);
         }
     }
     

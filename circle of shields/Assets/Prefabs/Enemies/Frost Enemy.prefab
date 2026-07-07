@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5984963721977793639}
   - component: {fileID: 6398996670967334678}
   - component: {fileID: 3108368501014839546}
+  - component: {fileID: -4682836451634932537}
   m_Layer: 10
   m_Name: Frost Enemy
   m_TagString: Enemy
@@ -252,3 +253,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.95, y: 0.95}
   m_EdgeRadius: 0
+--- !u!114 &-4682836451634932537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568264773456384954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b5cfc98adc80240a8e110d15452350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDirectionalSprite
+  spriteUp: {fileID: 4348167037848958103, guid: 5158d651330a99541a150f779f31a96e, type: 3}
+  spriteDown: {fileID: 9091410102833296012, guid: 5158d651330a99541a150f779f31a96e, type: 3}
+  spriteSide: {fileID: 4952472993839434020, guid: 5158d651330a99541a150f779f31a96e, type: 3}
+  targetRenderer: {fileID: 4004448460320163939}
+  rb: {fileID: 1249030246694831102}
+  defaultSource: 1
+  customTarget: {fileID: 0}
+  useVelocityDuringEntry: 1
+  minMovementThreshold: 0.1
+  targetTag: Mage
+  sideFacesLeft: 1

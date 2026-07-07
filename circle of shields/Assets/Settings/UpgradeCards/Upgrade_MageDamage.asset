@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8e4bf2ab94e9649946c50cb757816b, type: 3}
   m_Name: Upgrade_MageDamage
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: New Upgrade
-  description: Description of the upgrade
+  upgradeName: Empowered Bolts
+  description: Increase Mage's damage by 5
   icon: {fileID: 0}
-  category: 0
+  category: 1
   rarity: 0
   effect: {fileID: 11400000, guid: a039064f868ed9d458bc9e5edaf73c95, type: 2}
   maxStacks: 3

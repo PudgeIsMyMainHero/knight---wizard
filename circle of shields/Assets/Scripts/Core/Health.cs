@@ -28,17 +28,22 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage, string source = "Unknown")
     {
         if (IsDead) return;
-        if (isInvulnerable)
+        if (isInvulnerable) return;
+        
+        int finalDamage = damage;
+        
+        // Проверка метки смерти
+        DeathMark mark = GetComponent<DeathMark>();
+        if (mark != null && mark.IsMarked)
         {
-            Debug.Log(gameObject.name + " is INVULNERABLE! Ignored " + damage + " from " + source);
-            return;
+            finalDamage = Mathf.RoundToInt(damage * mark.BonusDamageMultiplier);
+            mark.ConsumeMark();
+            Debug.Log(gameObject.name + " MARK CONSUMED! Bonus damage: " + finalDamage);
         }
         
-        currentHealth -= damage;
+        
+        currentHealth -= finalDamage;
         currentHealth = Mathf.Max(0, currentHealth);
-        
-        Debug.Log(gameObject.name + " took " + damage + " damage from [" + source + "] HP: " + currentHealth + "/" + maxHealth);
-        
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
         
         if (IsDead)

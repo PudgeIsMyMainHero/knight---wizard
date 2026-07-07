@@ -3594,7 +3594,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f7c665c6df291946a53e9679a34d4b1, type: 3}
   m_Color: {r: 0.72517717, g: 0.53123885, b: 0.8867924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3780,6 +3780,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88d6ad9c76888fa42a954bd98b215f66, type: 2}
   - {fileID: 11400000, guid: 8034312e0d1d0664787b0ec7b1c69288, type: 2}
   - {fileID: 11400000, guid: b5a92f5f3c0931940b0562e7e055d7a9, type: 2}
+  globalEnemyPool: []
   preparationTime: 3
   timeBetweenWaves: 4
   spawner: {fileID: 1852015320}

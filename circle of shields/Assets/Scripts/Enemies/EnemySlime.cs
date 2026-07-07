@@ -107,8 +107,6 @@ public class EnemySlime : MonoBehaviour
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * walkSpeed;
         
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
         
         float distance = Vector2.Distance(transform.position, target.position);
         if (distance <= dashTriggerDistance)
@@ -253,6 +251,13 @@ public class EnemySlime : MonoBehaviour
         
         Vector2 cursorPos = GetCursorWorldPosition();
         StartFlying(cursorPos);
+        // Perfect Duet + Guardian Bond
+        if (PerfectDuetManager.Instance != null)
+            PerfectDuetManager.Instance.OnParry();
+        
+        MageGirl mage = FindObjectOfType<MageGirl>();
+        if (mage != null)
+            mage.OnParryHappened();
     }
     
     public void OnShieldBlock()

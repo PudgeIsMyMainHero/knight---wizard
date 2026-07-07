@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: EnemyData_FrostArcher
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Enemy
-  prefab: {fileID: 0}
+  prefab: {fileID: 2959335418173132576, guid: e52a9b6f06c04b94ea0429e7e3045032, type: 3}
   cost: 20
   minWaveNumber: 3
   maxAtOnce: 2
   maxPerWave: 0
   spawnWeight: 0.8
   spawnCooldown: 0.5
+  canBeGolden: 0

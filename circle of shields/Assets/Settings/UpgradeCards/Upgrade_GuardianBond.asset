@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e4bf2ab94e9649946c50cb757816b, type: 3}
+  m_Name: Upgrade_GuardianBond
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
+  upgradeName: Guardian Bond
+  description: After a parry, the Mage's next shot deals x1.5 damage
+  icon: {fileID: 0}
+  category: 2
+  rarity: 1
+  effect: {fileID: 11400000, guid: eadebfca16351844d97d6c0f12a3d79b, type: 2}
+  maxStacks: 1
+  weight: 0.5

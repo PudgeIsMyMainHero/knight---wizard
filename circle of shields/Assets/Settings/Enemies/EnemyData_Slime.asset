@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: EnemyData_Slime
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Slime
-  prefab: {fileID: 2777737535594890971, guid: 6cd4942665679634c912c66c21705685, type: 3}
+  prefab: {fileID: 1575144601694454069, guid: 1a6cfa74035049641a0deda369dc982a, type: 3}
   cost: 25
   minWaveNumber: 2
   maxAtOnce: 3
   maxPerWave: 0
   spawnWeight: 1
   spawnCooldown: 2
+  canBeGolden: 0

@@ -1,0 +1,483 @@
+fileFormatVersion: 2
+guid: 80a7f2ffd002c8b43987feca24ed3806
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2698740637714573234
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_0"
+  - first:
+      213: 31904961696432197
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_1"
+  - first:
+      213: -8336127697948724888
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_2"
+  - first:
+      213: 494732032987651794
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_3"
+  - first:
+      213: 1342218931259761311
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_4"
+  - first:
+      213: 3153459535642770832
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_5"
+  - first:
+      213: -953943958676568091
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_6"
+  - first:
+      213: 6401136314008572029
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_7"
+  - first:
+      213: -3572783387036054085
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_8"
+  - first:
+      213: 9057892258496489289
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_9"
+  - first:
+      213: -5898292465474355028
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_10"
+  - first:
+      213: -1608663999658859192
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_11"
+  - first:
+      213: -2292671673567947199
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_12"
+  - first:
+      213: -6626689121753491320
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_13"
+  - first:
+      213: -1656355885746626299
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_14"
+  - first:
+      213: -1551482353113985770
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_15"
+  - first:
+      213: 6105309824518624581
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_16"
+  - first:
+      213: -2286023455051539176
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_17"
+  - first:
+      213: -2543018009891748740
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_18"
+  - first:
+      213: -1913670406480671706
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_19"
+  - first:
+      213: -1916694514655399927
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_20"
+  - first:
+      213: 1616843946626927028
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_21"
+  - first:
+      213: 5375101310784570195
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_22"
+  - first:
+      213: -139938073381023058
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_23"
+  - first:
+      213: -2652836524631257505
+    second: "\u041F\u0420\u0418\u0417\u0420\u0410\u041A(\u0430\u0442\u0430\u043A\u0430)_24"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: frost_enemy attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8481a29d0e6b2f048b56010e0b48f1ae
+      internalID: 1220192608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_1
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a685bbd60d5b780478b632eeabc8bd89
+      internalID: 1625798675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54819e89ea755646ac51bc46eec6e6f
+      internalID: 1477289762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_3
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4a297a58425ea4a998f990962c019c
+      internalID: 234543512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_4
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8564b0fd8e6148a488d80359bda6a0e1
+      internalID: 1912738339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_5
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc4035b470bccf4f8d848e6e70b0379
+      internalID: -174195711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_6
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032edeacb3c583347ac8002b5dc67cb2
+      internalID: 569109277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_7
+      rect:
+        serializedVersion: 2
+        x: 5040
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0360f02f58749ab46b19d9e3ccfe48e5
+      internalID: -389828905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_8
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fff4f25b245dd4db15e38167548e65
+      internalID: 1336977364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_9
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37038a1ccc057e438c5a1b408fceafd
+      internalID: -1872918358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_10
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1912cea48cd324488b3d33d61af14d
+      internalID: 1503342960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frost_enemy attack_11
+      rect:
+        serializedVersion: 2
+        x: 7920
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc99781422e63834fa7d5e5590e93454
+      internalID: -933061741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 46d00836f9e220a4fb806e31e7de7bfd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":1.0},"gridSpriteSize":{"x":720.0,"y":720.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      frost_enemy attack_0: 1220192608
+      frost_enemy attack_1: 1625798675
+      frost_enemy attack_10: 1503342960
+      frost_enemy attack_11: -933061741
+      frost_enemy attack_2: 1477289762
+      frost_enemy attack_3: 234543512
+      frost_enemy attack_4: 1912738339
+      frost_enemy attack_5: -174195711
+      frost_enemy attack_6: 569109277
+      frost_enemy attack_7: -389828905
+      frost_enemy attack_8: 1336977364
+      frost_enemy attack_9: -1872918358
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

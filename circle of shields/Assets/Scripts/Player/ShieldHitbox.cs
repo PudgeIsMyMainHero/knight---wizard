@@ -27,12 +27,16 @@ public class ShieldHitbox : MonoBehaviour
             {
                 Vector2 reflectDir = GetAssistedDirection();
                 proj.Reflect(reflectDir);
-                
-                // Эффект автоматически применится при попадании
-                // (тип уже хранится в самом снаряде)
-                
+        
                 ParryEffect.SpawnFlash(other.transform.position);
-                Debug.Log(">>> SHIELD PARRY! Effect: " + proj.ParryEffect + " <<<");
+                Debug.Log(">>> SHIELD PARRY! <<<");
+        
+                // Уведомляем волшебницу о парри
+                MageGirl mage = FindObjectOfType<MageGirl>();
+                if (mage != null)
+                    mage.OnParryHappened();
+                if (PerfectDuetManager.Instance != null)
+                    PerfectDuetManager.Instance.OnParry();
             }
             else if (shieldController.IsBlocking)
             {

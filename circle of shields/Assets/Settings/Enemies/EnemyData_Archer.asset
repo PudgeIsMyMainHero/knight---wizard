@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: EnemyData_Archer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: Enemy
-  prefab: {fileID: 4049915654939114645, guid: 72b6040a389629741a81a1120b7ef358, type: 3}
+  prefab: {fileID: 5477075762597712781, guid: 719652c63ee528246856a100d0edbc56, type: 3}
   cost: 10
   minWaveNumber: 1
   maxAtOnce: 0
   maxPerWave: 0
   spawnWeight: 1.5
   spawnCooldown: 0.5
+  canBeGolden: 1

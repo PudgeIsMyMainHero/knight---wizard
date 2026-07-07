@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f80d6170198bc54691bc0f69acd13b1, type: 3}
-  m_Name: Effect_KnightHP_
-  m_EditorClassIdentifier: Assembly-CSharp::KnightMaxHPEffect
+  m_Script: {fileID: 11500000, guid: c6029dba4a640e54a9135cbc22fe7752, type: 3}
+  m_Name: Effect_PerfectDuet_5
+  m_EditorClassIdentifier: Assembly-CSharp::PerfectDuetEffect
   effectDescription: Base effect
-  hpAmount: 30
+  healAmount: 5

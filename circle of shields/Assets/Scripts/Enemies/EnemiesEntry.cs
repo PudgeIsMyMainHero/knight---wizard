@@ -26,19 +26,23 @@ public class EnemiesEntry : MonoBehaviour
     
     private void DisableEnemyAI()
     {
-        // Отключаем все скрипты врагов (EnemyArcher, EnemySlime, EnemyFrostArcher)
         MonoBehaviour[] all = GetComponents<MonoBehaviour>();
         
         System.Collections.Generic.List<MonoBehaviour> toDisable = new System.Collections.Generic.List<MonoBehaviour>();
         
         foreach (var b in all)
         {
-            // Отключаем всё что содержит "Enemy" в имени, кроме EnemyEntry
             if (b == this) continue;
             if (b == null) continue;
             
             string typeName = b.GetType().Name;
-            if (typeName.StartsWith("Enemy"))
+            
+            // Отключаем только ИИ-скрипты (стрельба, поведение)
+            // НЕ отключаем визуальные и утилитарные компоненты
+            if (typeName.StartsWith("Enemy") && 
+                typeName != "EnemyDirectionalSprite" &&
+                typeName != "EnemySeparation" &&
+                typeName != "EnemyGolden")
             {
                 b.enabled = false;
                 toDisable.Add(b);
@@ -63,23 +67,22 @@ public class EnemiesEntry : MonoBehaviour
         Vector2 currentPos = transform.position;
         float distance = Vector2.Distance(currentPos, targetPosition);
         
+        // ДЕБАГ
+        Debug.Log(gameObject.name + " ENTERING | distance to target: " + distance.ToString("F2") + 
+                  " | velocity: " + (rb != null ? rb.linearVelocity.magnitude.ToString("F2") : "no rb"));
+        
         if (distance < 0.3f)
         {
             FinishEntry();
             return;
         }
         
-        // Двигаемся к цели
         Vector2 direction = (targetPosition - currentPos).normalized;
         
         if (rb != null)
             rb.linearVelocity = direction * moveSpeed;
         else
             transform.position = Vector2.MoveTowards(currentPos, targetPosition, moveSpeed * Time.deltaTime);
-        
-        // Поворот в направлении движения
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
     
     private void FinishEntry()
