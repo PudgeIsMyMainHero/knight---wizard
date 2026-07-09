@@ -26,15 +26,16 @@ public class MageDialogue : MonoBehaviour
     
     private void Start()
     {
-        // Подписка на события
         if (mageHealth != null)
-            mageHealth.OnHealthChanged.AddListener(OnMageHealthChanged);
+        {
+            mageHealth.OnDamageTaken.AddListener(OnMageDamageTaken);
+            mageHealth.OnHealed.AddListener(OnMageHealed);
+        }
         
         if (knightHealth != null)
-            knightHealth.OnHealthChanged.AddListener(OnKnightHealthChanged);
+            knightHealth.OnDamageTaken.AddListener(OnKnightDamageTaken);
         
-        // Вводная фраза через 2 сек после старта
-        Invoke(nameof(SpeakIntro), 2f);
+        Invoke(nameof(SpeakIntro), 1f);
     }
     
     private void SpeakIntro()
@@ -44,36 +45,38 @@ public class MageDialogue : MonoBehaviour
     }
     
     // Волшебница ранена
-    private void OnMageHealthChanged(int current, int max)
+    private void OnMageDamageTaken(int damage)
     {
-        float ratio = (float)current / max;
+        float ratio = (float)mageHealth.CurrentHealth / mageHealth.MaxHealth;
         
         // Низкий HP предупреждение
         if (ratio < lowHPThreshold && !spokenLowHPWarning)
         {
             spokenLowHPWarning = true;
             if (onLowHPPhrases != null)
-                DialogueSystem.Instance?.ShowPhrase(onLowHPPhrases.GetRandomPhrase(), 4f, 5);   // высокий приоритет
+                DialogueSystem.Instance?.ShowPhrase(onLowHPPhrases.GetRandomPhrase(), 4f, 5);
         }
         
-        // Восстановление флага при hp > 50%
-        if (ratio > 0.5f)
-            spokenLowHPWarning = false;
-        
         // Обычный урон
-        if (current < max && Random.value < 0.4f)
+        if (Random.value < 0.4f)
         {
             if (onDamagePhrases != null)
                 DialogueSystem.Instance?.ShowPhrase(onDamagePhrases.GetRandomPhrase(), 2.5f, 3);
         }
     }
     
-    // Рыцарь ранен
-    private void OnKnightHealthChanged(int current, int max)
+    private void OnMageHealed(int amount)
     {
-        float ratio = (float)current / max;
+        // Сброс флага если HP восстановилось
+        float ratio = (float)mageHealth.CurrentHealth / mageHealth.MaxHealth;
+        if (ratio > 0.5f)
+            spokenLowHPWarning = false;
+    }
+    
+    private void OnKnightDamageTaken(int damage)
+    {
+        float ratio = (float)knightHealth.CurrentHealth / knightHealth.MaxHealth;
         
-        // Волшебница переживает за рыцаря
         if (ratio < lowHPThreshold && Time.time - lastLowHPPhraseTime > lowHPCooldown)
         {
             lastLowHPPhraseTime = Time.time;

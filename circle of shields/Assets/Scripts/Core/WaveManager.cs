@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private bool useSmartSpawn = true;
     [SerializeField] private float maxThreatForSpawn = 15f;
     [SerializeField] private float threatCheckInterval = 0.5f;
-    [SerializeField] private float maxWaitTime = 5f;   // максимум ждать
+    [SerializeField] private float maxWaitTime = 5f;
     [SerializeField] private bool logThreat = false;
     
     // State
@@ -38,9 +38,6 @@ public class WaveManager : MonoBehaviour
     // Tracking для лимитов
     private Dictionary<EnemyData, int> spawnedThisWave = new Dictionary<EnemyData, int>();
     private Dictionary<EnemyData, float> lastSpawnTime = new Dictionary<EnemyData, float>();
-    
-    private Dictionary<SpawnPoint, float> activeSpawnPoints = new Dictionary<SpawnPoint, float>();
-    private float spawnPointCooldown = 3f;   // сколько точка "занята" после спавна
     
     // Properties
     public WaveState CurrentState => currentState;
@@ -80,40 +77,6 @@ public class WaveManager : MonoBehaviour
         }
     }
     
-    private SpawnPoint ChooseAvailableSpawnPoint(SpawnPoint[] allowed, int maxActive)
-    {
-        // Очищаем устаревшие точки
-        var expired = new List<SpawnPoint>();
-        foreach (var kvp in activeSpawnPoints)
-        {
-            if (Time.time - kvp.Value > spawnPointCooldown)
-                expired.Add(kvp.Key);
-        }
-        foreach (var sp in expired)
-            activeSpawnPoints.Remove(sp);
-        
-        // Если активных точек меньше max — можем спавнить в новую
-        if (activeSpawnPoints.Count < maxActive)
-        {
-            // Выбираем неактивную точку
-            var candidates = new List<SpawnPoint>();
-            foreach (var sp in allowed)
-                if (!activeSpawnPoints.ContainsKey(sp))
-                    candidates.Add(sp);
-            
-            if (candidates.Count > 0)
-            {
-                SpawnPoint chosen = candidates[Random.Range(0, candidates.Count)];
-                activeSpawnPoints[chosen] = Time.time;
-                return chosen;
-            }
-        }
-        
-        // Иначе — из активных
-        var activeList = new List<SpawnPoint>(activeSpawnPoints.Keys);
-        return activeList[Random.Range(0, activeList.Count)];
-    }
-    
     private void UpdatePreparing()
     {
         stateTimer -= Time.deltaTime;
@@ -138,12 +101,13 @@ public class WaveManager : MonoBehaviour
         lastSpawnTime.Clear();
         
         StartCoroutine(SpawnWaveByBudget(wave));
+        
         MageDialogue dialogue = FindObjectOfType<MageDialogue>();
         if (dialogue != null)
             dialogue.OnWaveStart();
     }
     
-        private IEnumerator SpawnWaveByBudget(WaveBudgetData wave)
+    private IEnumerator SpawnWaveByBudget(WaveBudgetData wave)
     {
         isSpawning = true;
         int remainingBudget = wave.budget;
@@ -167,7 +131,7 @@ public class WaveManager : MonoBehaviour
             // === ЛИМИТ ЖИВЫХ ВРАГОВ ===
             yield return StartCoroutine(WaitForEnemyLimit(wave.maxAliveEnemies));
             
-            // === SMART SPAWN (опционально, если используешь) ===
+            // === SMART SPAWN (проверка threat) ===
             if (useSmartSpawn)
             {
                 yield return StartCoroutine(WaitForThreatDrop());
@@ -195,7 +159,11 @@ public class WaveManager : MonoBehaviour
                 }
             }
             
-            GameObject enemy = spawner.SpawnEnemy(chosen.prefab, -1, isGolden);
+            // === ВЫБОР ТОЧКИ СПАВНА ===
+            int pointIndex = GetRandomAllowedPoint(wave);
+            
+            // Спавним
+            GameObject enemy = spawner.SpawnEnemy(chosen.prefab, pointIndex, isGolden);
             
             if (enemy != null)
             {
@@ -208,8 +176,9 @@ public class WaveManager : MonoBehaviour
                 
                 remainingBudget -= chosen.cost;
                 
-                Debug.Log("Spawned " + chosen.enemyName + " (cost " + chosen.cost + 
-                          ", remaining budget: " + remainingBudget + 
+                Debug.Log("Spawned " + chosen.enemyName + " at point " + pointIndex +
+                          " (cost " + chosen.cost + 
+                          ", budget: " + remainingBudget + 
                           ", alive: " + aliveEnemies.Count + "/" + wave.maxAliveEnemies + ")" + 
                           (isGolden ? " ★" : ""));
             }
@@ -225,17 +194,26 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Wave spawn complete.");
     }
     
+    /// Выбирает случайную точку из разрешённых для этой волны.
+    /// Если список пуст — возвращает -1 (случайная из всех).
+    private int GetRandomAllowedPoint(WaveBudgetData wave)
+    {
+        if (wave.allowedSpawnPointIndices == null || wave.allowedSpawnPointIndices.Length == 0)
+            return -1;   // случайная из всех
+        
+        return wave.allowedSpawnPointIndices[Random.Range(0, wave.allowedSpawnPointIndices.Length)];
+    }
+    
     private IEnumerator WaitForEnemyLimit(int maxAlive)
     {
         while (true)
         {
-            // Очищаем мертвых из списка
             aliveEnemies.RemoveAll(e => e == null);
             
             if (aliveEnemies.Count < maxAlive)
-                yield break;   // можно спавнить
+                yield break;
             
-            yield return new WaitForSeconds(0.3f);   // проверяем каждые 0.3 сек
+            yield return new WaitForSeconds(0.3f);
         }
     }
     
@@ -255,13 +233,12 @@ public class WaveManager : MonoBehaviour
             }
             
             if (currentThreat <= maxThreatForSpawn)
-                yield break;   // угроза приемлемая — спавним
+                yield break;
             
             yield return new WaitForSeconds(threatCheckInterval);
             waitedTime += threatCheckInterval;
         }
         
-        // Максимум ждали — всё равно спавним
         if (logThreat)
             Debug.Log("[Threat] Max wait reached, spawning anyway");
     }
@@ -271,7 +248,6 @@ public class WaveManager : MonoBehaviour
     {
         int currentWave = CurrentWaveNumber;
         
-        // Фильтруем: по цене, по волне, по лимитам, по кулдауну
         List<EnemyData> affordable = new List<EnemyData>();
         List<float> weights = new List<float>();
         
@@ -333,8 +309,6 @@ public class WaveManager : MonoBehaviour
     
     private int CountAliveOfType(EnemyData data)
     {
-        // Простая проверка по имени префаба
-        // Для точности можно добавить компонент EnemyIdentity на врагов
         int count = 0;
         foreach (GameObject enemy in aliveEnemies)
         {
@@ -386,7 +360,6 @@ public class WaveManager : MonoBehaviour
         currentState = WaveState.GameOver;
         Debug.Log("=== VICTORY! ===");
         
-        // Триггерим экран победы
         if (GameManager.Instance != null)
             GameManager.Instance.TriggerVictory();
     }

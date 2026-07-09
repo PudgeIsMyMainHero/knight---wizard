@@ -117,6 +117,8 @@ public class Projectile : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
+                if (parryEffect == ParryEffectType.Frost)
+                    ApplyFrostToAlly(other.gameObject);
                 Health playerHealth = other.GetComponent<Health>();
                 if (playerHealth != null)
                     playerHealth.TakeDamage(damage, "Enemy Projectile");
@@ -125,6 +127,8 @@ public class Projectile : MonoBehaviour
             }
             else if (other.CompareTag("Mage"))
             {
+                if (parryEffect == ParryEffectType.Frost)
+                    ApplyFrostToAlly(other.gameObject);
                 Health mageHealth = other.GetComponent<Health>();
                 if (mageHealth != null)
                     mageHealth.TakeDamage(damage, "Enemy Projectile");

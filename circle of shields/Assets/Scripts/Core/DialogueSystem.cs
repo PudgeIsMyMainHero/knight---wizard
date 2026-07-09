@@ -28,6 +28,8 @@ public class DialogueSystem : MonoBehaviour
     private int currentPriority = 0;
     
     private Camera mainCamera;
+
+    private bool isBlocked = false;
     
     private void Awake()
     {
@@ -65,6 +67,7 @@ public class DialogueSystem : MonoBehaviour
         // Проверка cooldown
         if (Time.time - lastPhraseTime < globalCooldown && priority <= currentPriority)
             return;
+        if (isBlocked) return;
         
         // Прерываем текущую если новая важнее
         if (currentPhraseCoroutine != null)
@@ -123,6 +126,26 @@ public class DialogueSystem : MonoBehaviour
         
         currentPhraseCoroutine = null;
         currentPriority = 0;
+    }
+    
+    public void BlockDialogue(bool block)
+    {
+        isBlocked = block;
+        
+        // Если блокируем — скрываем текущую фразу
+        if (block)
+        {
+            if (currentPhraseCoroutine != null)
+            {
+                StopCoroutine(currentPhraseCoroutine);
+                currentPhraseCoroutine = null;
+            }
+            
+            if (speechBubble != null)
+                speechBubble.SetActive(false);
+            
+            currentPriority = 0;
+        }
     }
     
     /// Показать случайную фразу из списка

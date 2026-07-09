@@ -32,6 +32,9 @@ public class UpgradeChoiceUI : MonoBehaviour
         
         panel.SetActive(true);
         
+        if (DialogueSystem.Instance != null)
+            DialogueSystem.Instance.BlockDialogue(true);
+        
         // Очищаем старые карточки
         ClearCards();
         
@@ -64,6 +67,8 @@ public class UpgradeChoiceUI : MonoBehaviour
         ClearCards();
         if (panel != null)
             panel.SetActive(false);
+        if (DialogueSystem.Instance != null)
+            DialogueSystem.Instance.BlockDialogue(false);
     }
     
     private void ClearCards()
