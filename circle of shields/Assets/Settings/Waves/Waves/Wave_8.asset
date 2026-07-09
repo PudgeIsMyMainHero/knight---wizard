@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Wave_8
   m_EditorClassIdentifier: Assembly-CSharp::WaveBudgetData
   waveName: One Man Standing
-  budget: 220
+  budget: 200
   spawnInterval: 1.5
   spawnIntervalVariance: 0.5
   availableEnemies: []
   guaranteedGoldenCount: 1
   randomGoldenChance: 0
+  maxActiveSpawnPoints: 2
+  maxAliveEnemies: 5

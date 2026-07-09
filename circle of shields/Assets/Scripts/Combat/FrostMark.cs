@@ -76,7 +76,7 @@ public class FrostMark : MonoBehaviour
         
         SpriteRenderer sr = visual.AddComponent<SpriteRenderer>();
         sr.sprite = CreateCircleSprite();
-        sr.color = new Color(0.5f, 0.9f, 1f, 0.6f);
+        sr.color = new Color(0.5f, 0.9f, 1f, 0.3f);
         sr.sortingOrder = 90;
         
         visual.transform.localScale = Vector3.one * (radius * 2f);

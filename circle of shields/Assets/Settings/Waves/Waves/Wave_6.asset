@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Wave_6
   m_EditorClassIdentifier: Assembly-CSharp::WaveBudgetData
   waveName: Wave 1
-  budget: 50
+  budget: 120
   spawnInterval: 1.5
   spawnIntervalVariance: 0.5
   availableEnemies: []
   guaranteedGoldenCount: 0
   randomGoldenChance: 0
+  maxActiveSpawnPoints: 2
+  maxAliveEnemies: 4

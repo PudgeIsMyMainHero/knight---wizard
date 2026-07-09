@@ -149,7 +149,6 @@ public class WaveManager : MonoBehaviour
         int remainingBudget = wave.budget;
         int goldensLeft = wave.guaranteedGoldenCount;
         
-        // Получаем пул врагов
         EnemyData[] pool = (wave.availableEnemies != null && wave.availableEnemies.Length > 0)
             ? wave.availableEnemies
             : globalEnemyPool;
@@ -162,11 +161,13 @@ public class WaveManager : MonoBehaviour
             yield break;
         }
         
-        // Пока есть бюджет — покупаем врагов
         int safetyCounter = 200;
         while (remainingBudget > 0 && safetyCounter-- > 0)
         {
-            // === SMART SPAWN: ждём если threat слишком высокий ===
+            // === ЛИМИТ ЖИВЫХ ВРАГОВ ===
+            yield return StartCoroutine(WaitForEnemyLimit(wave.maxAliveEnemies));
+            
+            // === SMART SPAWN (опционально, если используешь) ===
             if (useSmartSpawn)
             {
                 yield return StartCoroutine(WaitForThreatDrop());
@@ -180,9 +181,7 @@ public class WaveManager : MonoBehaviour
                 break;
             }
             
-            // Определяем — золотой?
             bool isGolden = false;
-            
             if (chosen.canBeGolden)
             {
                 if (goldensLeft > 0)
@@ -196,7 +195,6 @@ public class WaveManager : MonoBehaviour
                 }
             }
             
-            // Спавним
             GameObject enemy = spawner.SpawnEnemy(chosen.prefab, -1, isGolden);
             
             if (enemy != null)
@@ -211,11 +209,11 @@ public class WaveManager : MonoBehaviour
                 remainingBudget -= chosen.cost;
                 
                 Debug.Log("Spawned " + chosen.enemyName + " (cost " + chosen.cost + 
-                          ", remaining budget: " + remainingBudget + ")" + 
+                          ", remaining budget: " + remainingBudget + 
+                          ", alive: " + aliveEnemies.Count + "/" + wave.maxAliveEnemies + ")" + 
                           (isGolden ? " ★" : ""));
             }
             
-            // Задержка перед следующим спавном
             float delay = wave.spawnInterval + Random.Range(-wave.spawnIntervalVariance, wave.spawnIntervalVariance);
             delay = Mathf.Max(0.1f, delay);
             yield return new WaitForSeconds(delay);
@@ -224,7 +222,21 @@ public class WaveManager : MonoBehaviour
         isSpawning = false;
         currentState = WaveState.InProgress;
         
-        Debug.Log("Wave spawn complete. Total enemies: " + aliveEnemies.Count);
+        Debug.Log("Wave spawn complete.");
+    }
+    
+    private IEnumerator WaitForEnemyLimit(int maxAlive)
+    {
+        while (true)
+        {
+            // Очищаем мертвых из списка
+            aliveEnemies.RemoveAll(e => e == null);
+            
+            if (aliveEnemies.Count < maxAlive)
+                yield break;   // можно спавнить
+            
+            yield return new WaitForSeconds(0.3f);   // проверяем каждые 0.3 сек
+        }
     }
     
     private IEnumerator WaitForThreatDrop()

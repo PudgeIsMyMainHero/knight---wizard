@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PhraseCollection
   collectionName: General
   phrases:
-  - Right on time!
+  - "\u0412-\u0432\u043E\u0432\u0440\u0435\u043C\u044F!"
+  - "\u042D\u0442\u043E \u0431\u044B\u043B\u043E \u043A\u0440\u0443\u0442\u043E!"
+  - "\u041F\u043E\u043B\u0443\u0447\u0430\u0439, \u043E\u0442\u0440\u043E\u0434\u044C\u0435!"

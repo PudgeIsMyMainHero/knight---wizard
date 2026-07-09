@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float restartDelay = 3f;
     [SerializeField] private float victoryRestartDelay = 10f;
     
+    [Header("VFX")]
+    [SerializeField] private GameObject parryParticlePrefab;
+    
     private bool isGameOver = false;
     private bool isVictory = false;
     
@@ -31,6 +34,10 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        
+        // Регистрируем префаб для ParryEffect
+        if (parryParticlePrefab != null)
+            ParryEffect.ParticlePrefab = parryParticlePrefab;
     }
     
     private void Start()

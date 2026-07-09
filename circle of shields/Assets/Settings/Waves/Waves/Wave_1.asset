@@ -21,3 +21,4 @@ MonoBehaviour:
   guaranteedGoldenCount: 0
   randomGoldenChance: 0
   maxActiveSpawnPoints: 2
+  maxAliveEnemies: 2

@@ -32,4 +32,8 @@ public class WaveBudgetData : ScriptableObject
     [Header("Directional Limits")]
     [Tooltip("Максимум активных точек спавна одновременно")]
     public int maxActiveSpawnPoints = 2;
+    
+    [Header("Enemy Limits")]
+    [Tooltip("Максимум врагов одновременно на арене")]
+    public int maxAliveEnemies = 5;
 }

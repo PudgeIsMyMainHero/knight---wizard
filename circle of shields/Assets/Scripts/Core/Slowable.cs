@@ -4,7 +4,7 @@ public class Slowable : MonoBehaviour
 {
     [Header("Freeze on Second Hit")]
     [SerializeField] private float freezeDuration = 2f;
-    [SerializeField] private float stackWindow = 3f;
+    [SerializeField] private float stackWindow = 6f;
     
     // State
     private float slowTimer = 0f;

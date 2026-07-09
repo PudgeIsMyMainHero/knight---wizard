@@ -16,7 +16,7 @@ public class ShieldHitbox : MonoBehaviour
         shieldController = GetComponent<ShieldController>();
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
     {
         if (shieldController == null) return;
         
@@ -30,6 +30,10 @@ public class ShieldHitbox : MonoBehaviour
         
                 ParryEffect.SpawnFlash(other.transform.position);
                 Debug.Log(">>> SHIELD PARRY! <<<");
+                
+                // Звук парри
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlayParry(transform.position);
         
                 // Уведомляем волшебницу о парри
                 MageGirl mage = FindObjectOfType<MageGirl>();
@@ -45,6 +49,10 @@ public class ShieldHitbox : MonoBehaviour
             {
                 Destroy(other.gameObject);
                 Debug.Log("Shield blocked!");
+                
+                // Звук блока
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlayBlock(transform.position);
             }
             return;
         }
@@ -56,11 +64,19 @@ public class ShieldHitbox : MonoBehaviour
             {
                 slime.OnShieldParry(transform.parent);
                 Debug.Log(">>> SHIELD PARRY SLIME! <<<");
+                
+                // Звук парри слайма
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlayParry(transform.position);
             }
             else if (shieldController.IsBlocking)
             {
                 slime.OnShieldBlock();
                 Debug.Log("Shield blocked slime!");
+                
+                // Звук блока слайма
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlayBlock(transform.position);
             }
             return;
         }

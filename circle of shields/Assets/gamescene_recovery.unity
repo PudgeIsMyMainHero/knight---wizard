@@ -1229,6 +1229,7 @@ MonoBehaviour:
   gameOverSlowdown: 0.3
   restartDelay: 3
   victoryRestartDelay: 10
+  parryParticlePrefab: {fileID: 8104179953455854028, guid: 0b4b4fc5853fbb040ad6b7158223e440, type: 3}
 --- !u!4 &396033901
 Transform:
   m_ObjectHideFlags: 0
@@ -1289,6 +1290,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8a714252c86b647bb38dad60ec50f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShieldRotator
+--- !u!1 &414741746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 414741748}
+  - component: {fileID: 414741747}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &414741747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414741746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee42420725caa842a53091c9317c52a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  parrySound: {fileID: 8300000, guid: fafa1846f705eaa42b65db5d8ba84e8e, type: 3}
+  blockSound: {fileID: 8300000, guid: e17cd47cc732a8f4ca16e044f2590d12, type: 3}
+  enemyHitSound: {fileID: 0}
+  playerHitSound: {fileID: 0}
+  defaultVolume: 0.4
+  pitchVariation: 0.4
+--- !u!4 &414741748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414741746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02016, y: 2.14477, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &468699979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,7 +4160,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7754975e4a5345643bdc27201fd2bca1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4133,8 +4184,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5251805}
-  m_Radius: 0.51125896
+  m_Offset: {x: 0.054658234, y: -1.8055494}
+  m_Radius: 0.5030372
 --- !u!114 &1107148334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4207,6 +4258,12 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1107148336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4264,8 +4321,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.11507779}
-  m_Radius: 1.3786521
+  m_Offset: {x: 0, y: -0.15610361}
+  m_Radius: 1.3376262
 --- !u!212 &1107148338
 SpriteRenderer:
   serializedVersion: 2
@@ -4315,7 +4372,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9061100072623562562, guid: 42116373145f1b44caf902a7e6f2a939, type: 3}
+  m_Sprite: {fileID: 283065079, guid: 12afd172cfd3866418c4993c736e359f, type: 3}
   m_Color: {r: 0.9607844, g: 0.9607844, b: 0.8627452, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4855,10 +4912,10 @@ MonoBehaviour:
   allUpgrades:
   - {fileID: 11400000, guid: 40f73632488019d4b96c68a4e0444207, type: 2}
   - {fileID: 11400000, guid: 94bf0a2797e14c044829194d58e18f2a, type: 2}
-  - {fileID: 11400000, guid: 2cc83836e310b4540bd0c07a92377975, type: 2}
   - {fileID: 11400000, guid: 17c9f6344e8cedb41a92a5f496f83d80, type: 2}
   - {fileID: 11400000, guid: 78cc2f66b85e46a4ab074c4abf97c32e, type: 2}
   - {fileID: 11400000, guid: 982b00ccbd08e0341b96427fa71c33b2, type: 2}
+  - {fileID: 11400000, guid: 73864c2668b03874fa90532622684d07, type: 2}
   choicesPerOffer: 3
   OnUpgradesOffered:
     m_PersistentCalls:
@@ -5551,6 +5608,7 @@ GameObject:
   - component: {fileID: 1681022466}
   - component: {fileID: 1681022467}
   - component: {fileID: 1681022468}
+  - component: {fileID: 1681022469}
   m_Layer: 3
   m_Name: Knight
   m_TagString: Player
@@ -5649,9 +5707,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 560bc5062f89ef344bbcdd748be5268c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c7ee2f6435da18749a0d731406e38793, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5799,6 +5857,12 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1681022467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5848,6 +5912,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &1681022469
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681022458}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.090731904, y: -0.80576456}
+  m_Radius: 0.27677333
 --- !u!1 &1711083917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5911,7 +6011,7 @@ GameObject:
   - component: {fileID: 1720616317}
   - component: {fileID: 1720616316}
   m_Layer: 5
-  m_Name: SpeechBuble
+  m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6299,6 +6399,12 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1816473344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6477,7 +6583,7 @@ MonoBehaviour:
   preparationTime: 3
   timeBetweenWaves: 3
   spawner: {fileID: 1852015320}
-  useSmartSpawn: 1
+  useSmartSpawn: 0
   maxThreatForSpawn: 10
   threatCheckInterval: 0.5
   maxWaitTime: 5
@@ -7564,3 +7670,4 @@ SceneRoots:
   - {fileID: 1372093381}
   - {fileID: 718357350}
   - {fileID: 670663307}
+  - {fileID: 414741748}

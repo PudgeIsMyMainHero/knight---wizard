@@ -12,10 +12,7 @@ public static class DeathMarkEffect
             mark = target.AddComponent<DeathMark>();
         
         mark.ApplyMark(1.5f);
-        
-        // Визуальная вспышка в точке попадания
-        ParryEffect.SpawnFlash(hitPosition);
-        
+
         // Девочка немедленно делает усиленный выстрел по цели
         MageGirl mage = Object.FindObjectOfType<MageGirl>();
         if (mage != null)

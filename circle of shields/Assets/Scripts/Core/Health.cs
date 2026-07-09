@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [Header("Events")]
     public UnityEvent<int, int> OnHealthChanged;
     public UnityEvent OnDeath;
+    public UnityEvent<int> OnDamageTaken;
+    public UnityEvent<int> OnHealed;
     
     // Неуязвимость
     private bool isInvulnerable = false;
@@ -45,6 +47,7 @@ public class Health : MonoBehaviour
         currentHealth -= finalDamage;
         currentHealth = Mathf.Max(0, currentHealth);
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        OnDamageTaken?.Invoke(finalDamage); 
         
         if (IsDead)
         {
@@ -57,10 +60,13 @@ public class Health : MonoBehaviour
     {
         if (IsDead) return;
         
+        int actualHeal = Mathf.Min(amount, maxHealth - currentHealth);
         currentHealth += amount;
         currentHealth = Mathf.Min(currentHealth, maxHealth);
         
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+        OnHealed?.Invoke(actualHeal);
+        
     }
     
     public void SetInvulnerable(bool value)

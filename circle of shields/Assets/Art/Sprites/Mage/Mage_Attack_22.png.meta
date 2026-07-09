@@ -1,0 +1,1268 @@
+fileFormatVersion: 2
+guid: f163592b38eb06449a79302e0cb7d94c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5932350577818128093
+    second: Mage_Attack_22_0
+  - first:
+      213: 1301192126807063214
+    second: Mage_Attack_22_1
+  - first:
+      213: 8841102635547919374
+    second: Mage_Attack_22_2
+  - first:
+      213: -5235468414639077273
+    second: Mage_Attack_22_3
+  - first:
+      213: -4586840717769562356
+    second: Mage_Attack_22_4
+  - first:
+      213: -5405136764784929552
+    second: Mage_Attack_22_5
+  - first:
+      213: -3698868747794496744
+    second: Mage_Attack_22_6
+  - first:
+      213: 6839428768422583468
+    second: Mage_Attack_22_7
+  - first:
+      213: -7105553616512680675
+    second: Mage_Attack_22_8
+  - first:
+      213: 7568945769843409725
+    second: Mage_Attack_22_9
+  - first:
+      213: -8663925274817225014
+    second: Mage_Attack_22_10
+  - first:
+      213: -713657444764375590
+    second: Mage_Attack_22_11
+  - first:
+      213: 3236659879894726119
+    second: Mage_Attack_22_12
+  - first:
+      213: -1048418062998270512
+    second: Mage_Attack_22_13
+  - first:
+      213: -4398573509771283354
+    second: Mage_Attack_22_14
+  - first:
+      213: -2355044765736587055
+    second: Mage_Attack_22_15
+  - first:
+      213: -4403554642100052497
+    second: Mage_Attack_22_16
+  - first:
+      213: 4052404371812161463
+    second: Mage_Attack_22_17
+  - first:
+      213: -7694895419201551203
+    second: Mage_Attack_22_18
+  - first:
+      213: 7476776122419164410
+    second: Mage_Attack_22_19
+  - first:
+      213: -6232248792268798826
+    second: Mage_Attack_22_20
+  - first:
+      213: -3473743630114045304
+    second: Mage_Attack_22_21
+  - first:
+      213: 1923946818089465661
+    second: Mage_Attack_22_22
+  - first:
+      213: 4603431147464813096
+    second: Mage_Attack_22_23
+  - first:
+      213: -8965325660992455924
+    second: Mage_Attack_22_24
+  - first:
+      213: 6820615823589604904
+    second: Mage_Attack_22_25
+  - first:
+      213: -3284577807283243512
+    second: Mage_Attack_22_26
+  - first:
+      213: -5909790126197176152
+    second: Mage_Attack_22_27
+  - first:
+      213: 1423197657151196757
+    second: Mage_Attack_22_28
+  - first:
+      213: 2097423669234574481
+    second: Mage_Attack_22_29
+  - first:
+      213: -6921844204272276554
+    second: Mage_Attack_22_30
+  - first:
+      213: 8820320717389561935
+    second: Mage_Attack_22_31
+  - first:
+      213: 2954875822433876278
+    second: Mage_Attack_22_32
+  - first:
+      213: 5803266311193250669
+    second: Mage_Attack_22_33
+  - first:
+      213: -9104924153728201536
+    second: Mage_Attack_22_34
+  - first:
+      213: 14900700955607766
+    second: Mage_Attack_22_35
+  - first:
+      213: -7310756851560823250
+    second: Mage_Attack_22_36
+  - first:
+      213: -4948741957964779597
+    second: Mage_Attack_22_37
+  - first:
+      213: -1988466582571379514
+    second: Mage_Attack_22_38
+  - first:
+      213: 8253748750909291092
+    second: Mage_Attack_22_39
+  - first:
+      213: 1998371561341400321
+    second: Mage_Attack_22_40
+  - first:
+      213: -7578645929197270580
+    second: Mage_Attack_22_41
+  - first:
+      213: -873687168346108217
+    second: Mage_Attack_22_42
+  - first:
+      213: -207502984003330700
+    second: Mage_Attack_22_43
+  - first:
+      213: 3678729596368831589
+    second: Mage_Attack_22_44
+  - first:
+      213: -9088353640216233560
+    second: Mage_Attack_22_45
+  - first:
+      213: 3205924385615738956
+    second: Mage_Attack_22_46
+  - first:
+      213: -8080197655952093654
+    second: Mage_Attack_22_47
+  - first:
+      213: 4867580834319424666
+    second: Mage_Attack_22_48
+  - first:
+      213: 8790811618221600983
+    second: Mage_Attack_22_49
+  - first:
+      213: -1124709358588714170
+    second: Mage_Attack_22_50
+  - first:
+      213: -1907611542338711832
+    second: Mage_Attack_22_51
+  - first:
+      213: -8074148681735944293
+    second: Mage_Attack_22_52
+  - first:
+      213: 4055529376947092605
+    second: Mage_Attack_22_53
+  - first:
+      213: -3906436608626347617
+    second: Mage_Attack_22_54
+  - first:
+      213: -6598675022205014174
+    second: Mage_Attack_22_55
+  - first:
+      213: -5551462856431102400
+    second: Mage_Attack_22_56
+  - first:
+      213: 8886579767599004041
+    second: Mage_Attack_22_57
+  - first:
+      213: -8432374332126517670
+    second: Mage_Attack_22_58
+  - first:
+      213: 7838383104423901165
+    second: Mage_Attack_22_59
+  - first:
+      213: 7368248444830679859
+    second: Mage_Attack_22_60
+  - first:
+      213: 8635345409531875839
+    second: Mage_Attack_22_61
+  - first:
+      213: -5223935467462886124
+    second: Mage_Attack_22_62
+  - first:
+      213: -4230711787590040489
+    second: Mage_Attack_22_63
+  - first:
+      213: 6956477426570908650
+    second: Mage_Attack_22_64
+  - first:
+      213: -2715892500907569540
+    second: Mage_Attack_22_65
+  - first:
+      213: 5433735414716427686
+    second: Mage_Attack_22_66
+  - first:
+      213: 3028889464787688357
+    second: Mage_Attack_22_67
+  - first:
+      213: 1489922433240724799
+    second: Mage_Attack_22_68
+  - first:
+      213: -605781901609776792
+    second: Mage_Attack_22_69
+  - first:
+      213: 2462234601843300075
+    second: Mage_Attack_22_70
+  - first:
+      213: -2403557782910306016
+    second: Mage_Attack_22_71
+  - first:
+      213: -6694810862416047016
+    second: Mage_Attack_22_72
+  - first:
+      213: -3016558010710853235
+    second: Mage_Attack_22_73
+  - first:
+      213: 4451586837901688122
+    second: Mage_Attack_22_74
+  - first:
+      213: 3890570257605777987
+    second: Mage_Attack_22_75
+  - first:
+      213: -9121604742846048815
+    second: Mage_Attack_22_76
+  - first:
+      213: -6194161854118471753
+    second: Mage_Attack_22_77
+  - first:
+      213: 1576763687951544664
+    second: Mage_Attack_22_78
+  - first:
+      213: 2927565604714803408
+    second: Mage_Attack_22_79
+  - first:
+      213: -4361005324910320129
+    second: Mage_Attack_22_80
+  - first:
+      213: -9128413993472991545
+    second: Mage_Attack_22_81
+  - first:
+      213: -7823249341219159660
+    second: Mage_Attack_22_82
+  - first:
+      213: 3202488797386150208
+    second: Mage_Attack_22_83
+  - first:
+      213: -3221012101826871706
+    second: Mage_Attack_22_84
+  - first:
+      213: 5352019883524680517
+    second: Mage_Attack_22_85
+  - first:
+      213: -8804120818644989015
+    second: Mage_Attack_22_86
+  - first:
+      213: 1307915940511633792
+    second: Mage_Attack_22_87
+  - first:
+      213: -8114682458590211039
+    second: Mage_Attack_22_88
+  - first:
+      213: -5151478517665703461
+    second: Mage_Attack_22_89
+  - first:
+      213: 3330361355365703708
+    second: Mage_Attack_22_90
+  - first:
+      213: -6223529030769376703
+    second: Mage_Attack_22_91
+  - first:
+      213: 3175637146733036724
+    second: Mage_Attack_22_92
+  - first:
+      213: -8213132431917187385
+    second: Mage_Attack_22_93
+  - first:
+      213: -950037386658627664
+    second: Mage_Attack_22_94
+  - first:
+      213: 5180754066422936133
+    second: Mage_Attack_22_95
+  - first:
+      213: 4105296804591768271
+    second: Mage_Attack_22_96
+  - first:
+      213: 7011554091730239635
+    second: Mage_Attack_22_97
+  - first:
+      213: -2583998197737115398
+    second: Mage_Attack_22_98
+  - first:
+      213: 348521390838577654
+    second: Mage_Attack_22_99
+  - first:
+      213: -3460779507382757751
+    second: Mage_Attack_22_100
+  - first:
+      213: 924000717633822396
+    second: Mage_Attack_22_101
+  - first:
+      213: 6049588873088981206
+    second: Mage_Attack_22_102
+  - first:
+      213: -4626390807624212771
+    second: Mage_Attack_22_103
+  - first:
+      213: -1745056706124189070
+    second: Mage_Attack_22_104
+  - first:
+      213: 6541868665531121929
+    second: Mage_Attack_22_105
+  - first:
+      213: 1629713947706988468
+    second: Mage_Attack_22_106
+  - first:
+      213: -5417002981937682733
+    second: Mage_Attack_22_107
+  - first:
+      213: -6721046328395651819
+    second: Mage_Attack_22_108
+  - first:
+      213: -7508465916585136519
+    second: Mage_Attack_22_109
+  - first:
+      213: 682567732126272092
+    second: Mage_Attack_22_110
+  - first:
+      213: -12522657183929997
+    second: Mage_Attack_22_111
+  - first:
+      213: 6606639810091896429
+    second: Mage_Attack_22_112
+  - first:
+      213: -3512245067689007272
+    second: Mage_Attack_22_113
+  - first:
+      213: 2305961987700768696
+    second: Mage_Attack_22_114
+  - first:
+      213: -8565821673949097471
+    second: Mage_Attack_22_115
+  - first:
+      213: -3491611544007147586
+    second: Mage_Attack_22_116
+  - first:
+      213: 6982088289112726424
+    second: Mage_Attack_22_117
+  - first:
+      213: -7499565937461153621
+    second: Mage_Attack_22_118
+  - first:
+      213: -5036186539792628596
+    second: Mage_Attack_22_119
+  - first:
+      213: -1012055958723973884
+    second: Mage_Attack_22_120
+  - first:
+      213: 3439585206234102765
+    second: Mage_Attack_22_121
+  - first:
+      213: -2696455456119403321
+    second: Mage_Attack_22_122
+  - first:
+      213: 6113486327787599761
+    second: Mage_Attack_22_123
+  - first:
+      213: 300477405371326668
+    second: Mage_Attack_22_124
+  - first:
+      213: 3775413027057397633
+    second: Mage_Attack_22_125
+  - first:
+      213: 1359285437860554599
+    second: Mage_Attack_22_126
+  - first:
+      213: 7254263476353503882
+    second: Mage_Attack_22_127
+  - first:
+      213: 7581965945724887601
+    second: Mage_Attack_22_128
+  - first:
+      213: -2062801181000563215
+    second: Mage_Attack_22_129
+  - first:
+      213: -560617669124366962
+    second: Mage_Attack_22_130
+  - first:
+      213: 6658188566413535388
+    second: Mage_Attack_22_131
+  - first:
+      213: -7049334040632793425
+    second: Mage_Attack_22_132
+  - first:
+      213: -6439285010169832029
+    second: Mage_Attack_22_133
+  - first:
+      213: -2794375171947533361
+    second: Mage_Attack_22_134
+  - first:
+      213: 5271884649385367731
+    second: Mage_Attack_22_135
+  - first:
+      213: -7246439873806146028
+    second: Mage_Attack_22_136
+  - first:
+      213: -7568349514850608548
+    second: Mage_Attack_22_137
+  - first:
+      213: -2257439013752073331
+    second: Mage_Attack_22_138
+  - first:
+      213: -590270712611256421
+    second: Mage_Attack_22_139
+  - first:
+      213: -340008846165423623
+    second: Mage_Attack_22_140
+  - first:
+      213: 4092567158008565598
+    second: Mage_Attack_22_141
+  - first:
+      213: -2948709423462201044
+    second: Mage_Attack_22_142
+  - first:
+      213: 9201614745894878700
+    second: Mage_Attack_22_143
+  - first:
+      213: -5800414787058278742
+    second: Mage_Attack_22_144
+  - first:
+      213: 4471260973868636621
+    second: Mage_Attack_22_145
+  - first:
+      213: 2387799593374328535
+    second: Mage_Attack_22_146
+  - first:
+      213: -2955147367021124629
+    second: Mage_Attack_22_147
+  - first:
+      213: -7671497785486733989
+    second: Mage_Attack_22_148
+  - first:
+      213: -4905187166756383817
+    second: Mage_Attack_22_149
+  - first:
+      213: 3803293336531097204
+    second: Mage_Attack_22_150
+  - first:
+      213: -2164559943142037780
+    second: Mage_Attack_22_151
+  - first:
+      213: 6565504234154580471
+    second: Mage_Attack_22_152
+  - first:
+      213: 5504354370084244955
+    second: Mage_Attack_22_153
+  - first:
+      213: -5313116512198096323
+    second: Mage_Attack_22_154
+  - first:
+      213: -2462622198171021092
+    second: Mage_Attack_22_155
+  - first:
+      213: -2518443632086527507
+    second: Mage_Attack_22_156
+  - first:
+      213: -5579457924393458433
+    second: Mage_Attack_22_157
+  - first:
+      213: -8081211732905510244
+    second: Mage_Attack_22_158
+  - first:
+      213: -1628217744913510156
+    second: Mage_Attack_22_159
+  - first:
+      213: 811122282212374445
+    second: Mage_Attack_22_160
+  - first:
+      213: -4638476403279250313
+    second: Mage_Attack_22_161
+  - first:
+      213: -5992216580993302972
+    second: Mage_Attack_22_162
+  - first:
+      213: 8903696723172693287
+    second: Mage_Attack_22_163
+  - first:
+      213: -8316380642591110561
+    second: Mage_Attack_22_164
+  - first:
+      213: 8850783722070366679
+    second: Mage_Attack_22_165
+  - first:
+      213: -843271645144737341
+    second: Mage_Attack_22_166
+  - first:
+      213: 7336616645429384721
+    second: Mage_Attack_22_167
+  - first:
+      213: -3291324465374166157
+    second: Mage_Attack_22_168
+  - first:
+      213: 4504672579028643624
+    second: Mage_Attack_22_169
+  - first:
+      213: 2920187212215596712
+    second: Mage_Attack_22_170
+  - first:
+      213: 511796213149221514
+    second: Mage_Attack_22_171
+  - first:
+      213: 3634580432162622016
+    second: Mage_Attack_22_172
+  - first:
+      213: -1903841862729983469
+    second: Mage_Attack_22_173
+  - first:
+      213: 7253250061782057201
+    second: Mage_Attack_22_174
+  - first:
+      213: -2088287190753062263
+    second: Mage_Attack_22_175
+  - first:
+      213: 7069430342613676361
+    second: Mage_Attack_22_176
+  - first:
+      213: 616314228895145422
+    second: Mage_Attack_22_177
+  - first:
+      213: -2744417696157855387
+    second: Mage_Attack_22_178
+  - first:
+      213: 3669838066137613421
+    second: Mage_Attack_22_179
+  - first:
+      213: 8023281694265390300
+    second: Mage_Attack_22_180
+  - first:
+      213: -1219868747982060180
+    second: Mage_Attack_22_181
+  - first:
+      213: -4030932079494939512
+    second: Mage_Attack_22_182
+  - first:
+      213: 1975750277255159121
+    second: Mage_Attack_22_183
+  - first:
+      213: 6304474167813995793
+    second: Mage_Attack_22_184
+  - first:
+      213: 2816115151240656323
+    second: Mage_Attack_22_185
+  - first:
+      213: 7261142954897447800
+    second: Mage_Attack_22_186
+  - first:
+      213: -7087458192098225356
+    second: Mage_Attack_22_187
+  - first:
+      213: -8620148334038192858
+    second: Mage_Attack_22_188
+  - first:
+      213: -4959436559985624936
+    second: Mage_Attack_22_189
+  - first:
+      213: -3979289291521807509
+    second: Mage_Attack_22_190
+  - first:
+      213: -2067596855061086674
+    second: Mage_Attack_22_191
+  - first:
+      213: -50618803446198296
+    second: Mage_Attack_22_192
+  - first:
+      213: -6570188828608348189
+    second: Mage_Attack_22_193
+  - first:
+      213: -8315034159639203892
+    second: Mage_Attack_22_194
+  - first:
+      213: 2818123993429516969
+    second: Mage_Attack_22_195
+  - first:
+      213: -9032899513581650196
+    second: Mage_Attack_22_196
+  - first:
+      213: -5696392889656615103
+    second: Mage_Attack_22_197
+  - first:
+      213: 105031994849209233
+    second: Mage_Attack_22_198
+  - first:
+      213: -2668545902873002207
+    second: Mage_Attack_22_199
+  - first:
+      213: 1368546179453175795
+    second: Mage_Attack_22_200
+  - first:
+      213: -3019488447043128992
+    second: Mage_Attack_22_201
+  - first:
+      213: -5040245988174111808
+    second: Mage_Attack_22_202
+  - first:
+      213: 6263794166344918077
+    second: Mage_Attack_22_203
+  - first:
+      213: -4494139154987741438
+    second: Mage_Attack_22_204
+  - first:
+      213: -8644280563930326514
+    second: Mage_Attack_22_205
+  - first:
+      213: 5141989822759534032
+    second: Mage_Attack_22_206
+  - first:
+      213: 8811517395305662541
+    second: Mage_Attack_22_207
+  - first:
+      213: -9008137470109613771
+    second: Mage_Attack_22_208
+  - first:
+      213: -8985430411043930522
+    second: Mage_Attack_22_209
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mage_Attack_22_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddecee96b61f35250800000000000000
+      internalID: 5932350577818128093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_1
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaabed66853ce0210800000000000000
+      internalID: 1301192126807063214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_2
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e048a9e3108e1ba70800000000000000
+      internalID: 8841102635547919374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_3
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76809a03731e757b0800000000000000
+      internalID: -5235468414639077273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_4
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c072c085ba44850c0800000000000000
+      internalID: -4586840717769562356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_5
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4179400c81df4b0800000000000000
+      internalID: -5405136764784929552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_6
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8134ae8a87afaacc0800000000000000
+      internalID: -3698868747794496744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_7
+      rect:
+        serializedVersion: 2
+        x: 5040
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac5a606a388aee50800000000000000
+      internalID: 6839428768422583468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_8
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1df443f1a0046d90800000000000000
+      internalID: -7105553616512680675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_9
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3346bf531c4a0960800000000000000
+      internalID: 7568945769843409725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_10
+      rect:
+        serializedVersion: 2
+        x: 7200
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace9df1bddd83c780800000000000000
+      internalID: -8663925274817225014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_11
+      rect:
+        serializedVersion: 2
+        x: 7920
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5a189c5549816f0800000000000000
+      internalID: -713657444764375590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_12
+      rect:
+        serializedVersion: 2
+        x: 8640
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e532ef130deaec20800000000000000
+      internalID: 3236659879894726119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_13
+      rect:
+        serializedVersion: 2
+        x: 9360
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dd82e293554371f0800000000000000
+      internalID: -1048418062998270512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_14
+      rect:
+        serializedVersion: 2
+        x: 10080
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664b3af82b025f2c0800000000000000
+      internalID: -4398573509771283354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_15
+      rect:
+        serializedVersion: 2
+        x: 10800
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d0b02c5343315fd0800000000000000
+      internalID: -2355044765736587055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_16
+      rect:
+        serializedVersion: 2
+        x: 11520
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fed9a90526e63e2c0800000000000000
+      internalID: -4403554642100052497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_17
+      rect:
+        serializedVersion: 2
+        x: 12240
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b79a1c3e480d3830800000000000000
+      internalID: 4052404371812161463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_18
+      rect:
+        serializedVersion: 2
+        x: 12960
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9406b2b26d363590800000000000000
+      internalID: -7694895419201551203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_19
+      rect:
+        serializedVersion: 2
+        x: 13680
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af4bae90548d2c760800000000000000
+      internalID: 7476776122419164410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_20
+      rect:
+        serializedVersion: 2
+        x: 14400
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69406f84eba9289a0800000000000000
+      internalID: -6232248792268798826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mage_Attack_22_21
+      rect:
+        serializedVersion: 2
+        x: 15120
+        y: 0
+        width: 720
+        height: 720
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882c646b298cacfc0800000000000000
+      internalID: -3473743630114045304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: caa48c996c51df347bd4038a40f87e4a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":22.0,"y":1.0},"gridSpriteSize":{"x":720.0,"y":720.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Mage_Attack_22_0: 5932350577818128093
+      Mage_Attack_22_1: 1301192126807063214
+      Mage_Attack_22_10: -8663925274817225014
+      Mage_Attack_22_11: -713657444764375590
+      Mage_Attack_22_12: 3236659879894726119
+      Mage_Attack_22_13: -1048418062998270512
+      Mage_Attack_22_14: -4398573509771283354
+      Mage_Attack_22_15: -2355044765736587055
+      Mage_Attack_22_16: -4403554642100052497
+      Mage_Attack_22_17: 4052404371812161463
+      Mage_Attack_22_18: -7694895419201551203
+      Mage_Attack_22_19: 7476776122419164410
+      Mage_Attack_22_2: 8841102635547919374
+      Mage_Attack_22_20: -6232248792268798826
+      Mage_Attack_22_21: -3473743630114045304
+      Mage_Attack_22_3: -5235468414639077273
+      Mage_Attack_22_4: -4586840717769562356
+      Mage_Attack_22_5: -5405136764784929552
+      Mage_Attack_22_6: -3698868747794496744
+      Mage_Attack_22_7: 6839428768422583468
+      Mage_Attack_22_8: -7105553616512680675
+      Mage_Attack_22_9: 7568945769843409725
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

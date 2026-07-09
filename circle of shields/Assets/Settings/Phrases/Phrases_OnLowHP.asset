@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PhraseCollection
   collectionName: General
   phrases:
-  - I don't know how much longer I can hold...
-  - I'm fading...
+  - "\u042F \u043D-\u043D\u0435 \u0437\u043D\u0430\u044E, \u043A\u0430\u043A \u0434\u043E\u043B\u0433\u043E
+    \u044F \u0435\u0449\u0451 \u043F\u0440\u043E\u0434\u0435\u0440\u0436\u0443\u0441\u044C..."
+  - "\u0420\u044B\u0446\u0430\u0440\u044C.. \u041F\u043E\u043C\u043E\u0433\u0438..."
+  - "\u0421\u0438\u043B\u044B \u043F\u043E\u043A\u0438\u0434\u0430\u044E\u0442..
+    \u043C-\u043C\u0435\u043D\u044F..."

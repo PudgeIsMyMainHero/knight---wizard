@@ -20,3 +20,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7f38ec2a11d46fb458f337550c3d6bd5, type: 2}
   guaranteedGoldenCount: 1
   randomGoldenChance: 0
+  maxActiveSpawnPoints: 2
+  maxAliveEnemies: 3
