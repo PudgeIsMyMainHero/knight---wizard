@@ -18,6 +18,6 @@ MonoBehaviour:
   spawnIntervalVariance: 0.2
   availableEnemies: []
   guaranteedGoldenCount: 1
-  randomGoldenChance: 0
+  randomGoldenChance: 0.016
   maxActiveSpawnPoints: 2
   maxAliveEnemies: 4
