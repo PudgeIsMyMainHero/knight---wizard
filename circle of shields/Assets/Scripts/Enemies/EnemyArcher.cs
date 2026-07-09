@@ -56,6 +56,14 @@ public class EnemyArcher : MonoBehaviour
             Shoot();
             shootTimer = shootInterval;
         }
+        
+        Health health = GetComponent<Health>();
+        if (health != null && health.IsDead)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
     }
 
     private void Shoot()

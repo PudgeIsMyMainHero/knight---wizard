@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2044263556959312772}
   - component: {fileID: 8884318960500174271}
   - component: {fileID: 1630317130687262625}
+  - component: {fileID: 8580146713597002755}
   m_Layer: 10
   m_Name: Archer 1
   m_TagString: Enemy
@@ -192,6 +193,12 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6709438945257938302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +307,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8580146713597002755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477075762597712781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5a8d62c4f22fb41ae1bf2d0ba77c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Slowable
+  freezeDuration: 3
+  stackWindow: 5
+  animator: {fileID: 1630317130687262625}
 --- !u!1 &6358196718115124587
 GameObject:
   m_ObjectHideFlags: 0

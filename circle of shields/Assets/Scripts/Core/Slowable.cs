@@ -4,31 +4,33 @@ public class Slowable : MonoBehaviour
 {
     [Header("Freeze on Second Hit")]
     [SerializeField] private float freezeDuration = 2f;
-    [SerializeField] private float stackWindow = 6f;
+    [SerializeField] private float stackWindow = 3f;
     
-    // State
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    
     private float slowTimer = 0f;
     private float freezeTimer = 0f;
     private float lastHitTime = -999f;
     private bool isFrozen = false;
     
-    // Visual
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private bool colorSaved = false;
     
-    // Public
     public float CurrentSpeedMultiplier { get; private set; } = 1f;
     public bool IsFrozen => isFrozen;
     
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        if (animator == null)
+            animator = GetComponent<Animator>();
     }
     
     private void Update()
     {
-        // Заморозка
         if (isFrozen)
         {
             freezeTimer -= Time.deltaTime;
@@ -37,7 +39,6 @@ public class Slowable : MonoBehaviour
             return;
         }
         
-        // Замедление
         if (slowTimer > 0)
         {
             slowTimer -= Time.deltaTime;
@@ -46,7 +47,6 @@ public class Slowable : MonoBehaviour
         }
     }
     
-    // Обычное замедление (без стакания)
     public void ApplySlow(float multiplier, float duration)
     {
         if (isFrozen) return;
@@ -57,9 +57,9 @@ public class Slowable : MonoBehaviour
         slowTimer = Mathf.Max(slowTimer, duration);
         
         UpdateVisual();
+        UpdateAnimatorSpeed();
     }
     
-    // Замедление с накоплением (2-й hit = заморозка)
     public void ApplyStackingFrost(float slowMultiplier, float slowDuration)
     {
         if (isFrozen) return;
@@ -70,15 +70,11 @@ public class Slowable : MonoBehaviour
         
         if (timeSinceLastHit < stackWindow)
         {
-            // 2-й hit — ЗАМОРОЗКА
             Freeze(freezeDuration);
-            Debug.Log(gameObject.name + " FROZEN!");
         }
         else
         {
-            // 1-й hit — обычное замедление
             ApplySlow(slowMultiplier, slowDuration);
-            Debug.Log(gameObject.name + " slowed (1st stack)");
         }
         
         lastHitTime = Time.time;
@@ -93,6 +89,7 @@ public class Slowable : MonoBehaviour
         CurrentSpeedMultiplier = 0f;
         
         UpdateVisual();
+        UpdateAnimatorSpeed();
     }
     
     private void Unfreeze()
@@ -102,12 +99,21 @@ public class Slowable : MonoBehaviour
         slowTimer = 0f;
         
         RestoreColor();
+        UpdateAnimatorSpeed();
     }
     
     private void RemoveSlow()
     {
         CurrentSpeedMultiplier = 1f;
         RestoreColor();
+        UpdateAnimatorSpeed();
+    }
+    
+    private void UpdateAnimatorSpeed()
+    {
+        if (animator == null) return;
+        
+        animator.speed = CurrentSpeedMultiplier;
     }
     
     private void SaveColor()
@@ -130,7 +136,7 @@ public class Slowable : MonoBehaviour
         if (spriteRenderer == null) return;
         
         if (isFrozen)
-            spriteRenderer.color = new Color(0.6f, 0.9f, 1f, 1f); // Яркий лёд
+            spriteRenderer.color = new Color(0.6f, 0.9f, 1f, 1f);
         else
             spriteRenderer.color = Color.Lerp(originalColor, new Color(0.5f, 0.8f, 1f, 1f), 0.6f);
     }

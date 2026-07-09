@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySlime
   walkSpeed: 3
   dashSpeed: 10
-  dashTriggerDistance: 5
+  dashTriggerDistance: 7
   chargeTime: 0.5
   dashDuration: 0.8
   flyTime: 0.4
@@ -144,6 +144,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHealed:
     m_PersistentCalls:
       m_Calls: []
 --- !u!58 &2041988642919833092
