@@ -93,6 +93,27 @@ public class ShieldController : MonoBehaviour
         }
     }
     
+    public void OnSuccessfulParry()
+    {
+        // Сбрасываем состояние без cooldown
+        isBlocking = false;
+        isParryActive = false;
+        isOnCooldown = false;
+        cooldownTimer = 0f;
+        
+        // Если игрок всё ещё держит кнопку — сразу поднимаем щит заново
+        if (wantsToBlock)
+        {
+            RaiseShield();
+        }
+        else
+        {
+            SetShieldState(false, normalColor);
+        }
+        
+        Debug.Log("Successful parry — no cooldown!");
+    }
+    
     private void RaiseShield()
     {
         isBlocking = true;
